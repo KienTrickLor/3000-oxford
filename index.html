@@ -88,96 +88,92 @@
     .swipe-card-transition {
       transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
     }
-    /* Custom Scrollbar */
+    /* Custom Scrollbar - Minimalist Dark Mode */
     ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: #f1f5f9; }
-    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
-    ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    ::-webkit-scrollbar-track { background: #090d16; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: #475569; }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col selection:bg-indigo-600 selection:text-white">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white antialiased">
 
   <!-- TOP HEADER & AUDIO STUDIO (Scrolls naturally on mobile to maximize screen space) -->
-  <header class="bg-white border-b border-slate-200 shadow-2xs">
-    <div class="max-w-7xl mx-auto px-3 sm:px-6 py-2">
+  <header class="bg-slate-900 border-b border-slate-800 shadow-md">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 py-2.5">
       <div class="flex flex-wrap items-center justify-between gap-2">
         <!-- Brand Logo & Title -->
         <div class="flex items-center gap-2.5">
-          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-indigo-600 via-violet-600 to-purple-600 flex items-center justify-center text-white shadow-sm shadow-indigo-200 shrink-0">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-indigo-600 border border-indigo-400/40 flex items-center justify-center text-white shadow-md shadow-indigo-500/20 shrink-0">
             <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
             </svg>
           </div>
           <div>
             <div class="flex items-center gap-1.5">
-              <h1 class="text-sm sm:text-lg font-extrabold tracking-tight text-slate-900">TKien <span class="text-indigo-600">3000</span></h1>
-              <span class="hidden md:inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200">Oxford 3000™</span>
+              <h1 class="text-sm sm:text-lg font-extrabold tracking-tight text-slate-100">TKien <span class="text-indigo-400">3000</span></h1>
+              <span class="hidden md:inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-indigo-500/15 text-indigo-300 border border-indigo-500/30">Oxford 3000™</span>
             </div>
-            <p class="text-[11px] text-slate-500 hidden lg:block">Học &amp; ghi nhớ 3000 từ vựng tiếng Anh thông dụng</p>
+            <p class="text-[11px] text-slate-400 hidden lg:block">Học &amp; ghi nhớ 3000 từ vựng tiếng Anh thông dụng</p>
           </div>
         </div>
 
         <!-- Quick Stats Pills & User Account -->
         <div class="flex items-center gap-1.5 sm:gap-2 flex-wrap">
-          <div class="flex items-center gap-1 px-2 py-1 rounded-lg bg-amber-50 border border-amber-200 text-amber-800 text-xs font-bold" title="Chuỗi ngày học liên tiếp">
-            <span>🔥</span>
+          <div class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-500/15 border border-amber-500/40 text-amber-300 text-xs font-bold" title="Chuỗi ngày học liên tiếp">
+            <span>Chuỗi:</span>
             <span id="stat-streak">1</span>
           </div>
-          <div class="flex items-center gap-1 px-2 py-1 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold" title="Số từ đã thuộc lòng">
-            <span>✅</span>
+          <div class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 text-xs font-bold" title="Số từ đã thuộc lòng">
+            <span>Thuộc:</span>
             <span id="stat-mastered">0</span>
-            <span class="text-emerald-600 hidden sm:inline">/ 3000</span>
+            <span class="text-emerald-400/80 hidden sm:inline">/ 3000</span>
           </div>
-          <button type="button" onclick="quickFilterDue()" class="flex items-center gap-1 px-2 py-1 rounded-lg bg-rose-50 hover:bg-rose-100 border border-rose-200 text-rose-700 text-xs font-bold transition" title="Bấm để lọc các từ đến hạn ôn tập hôm nay">
-            <span>⏰</span>
-            <span class="hidden sm:inline">Cần ôn:</span>
+          <button type="button" onclick="quickFilterDue()" class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/50 text-rose-200 text-xs font-bold shadow-sm shadow-rose-500/10 active:scale-95 transition" title="Bấm để lọc các từ đến hạn ôn tập hôm nay">
+            <span>Cần ôn:</span>
             <span id="stat-due">0</span>
           </button>
-          <div class="hidden xl:flex items-center gap-2 bg-slate-100 px-2.5 py-1 rounded-lg border border-slate-200">
-            <div class="text-[11px] font-medium text-slate-600">Mục tiêu: <span id="stat-daily" class="font-bold text-indigo-600">0/20</span></div>
-            <div class="w-14 h-2 bg-slate-200 rounded-full overflow-hidden">
-              <div id="daily-progress-bar" class="h-full bg-indigo-600 transition-all duration-300" style="width: 0%"></div>
+          <div class="hidden xl:flex items-center gap-2 bg-slate-800/90 px-2.5 py-1 rounded-lg border border-slate-700">
+            <div class="text-[11px] font-medium text-slate-300">Mục tiêu: <span id="stat-daily" class="font-bold text-indigo-400">0/20</span></div>
+            <div class="w-14 h-2 bg-slate-700 rounded-full overflow-hidden">
+              <div id="daily-progress-bar" class="h-full bg-indigo-500 transition-all duration-300" style="width: 0%"></div>
             </div>
           </div>
 
           <!-- USER ACCOUNT WIDGET -->
           <div class="relative" id="auth-header-widget">
             <div id="auth-user-pill" class="relative">
-              <button type="button" id="auth-user-btn" onclick="toggleUserDropdown(event)" class="flex items-center gap-1.5 px-2 py-1 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 shadow-2xs transition">
-                <span id="auth-user-avatar" class="w-6 h-6 rounded-lg bg-indigo-600 text-white flex items-center justify-center text-xs font-bold shrink-0">👨‍🎓</span>
+              <button type="button" id="auth-user-btn" onclick="toggleUserDropdown(event)" class="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-100 shadow-sm active:scale-95 transition">
+                <span id="auth-user-avatar" class="w-6 h-6 rounded-lg bg-indigo-600 text-white flex items-center justify-center text-[11px] font-extrabold shrink-0">HV</span>
                 <div class="text-left hidden sm:block">
-                  <div id="auth-user-name" class="text-xs font-bold text-slate-800 leading-tight max-w-[95px] truncate">Học viên</div>
-                  <div id="auth-user-sync-text" class="text-[10px] text-emerald-600 font-semibold leading-none flex items-center gap-1">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Đã lưu
+                  <div id="auth-user-name" class="text-xs font-bold text-slate-100 leading-tight max-w-[95px] truncate">Học viên</div>
+                  <div id="auth-user-sync-text" class="text-[10px] text-emerald-400 font-semibold leading-none flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Đã lưu
                   </div>
                 </div>
                 <span class="text-slate-400 text-[10px]">▼</span>
               </button>
 
               <!-- Dropdown Menu (Centered fixed on mobile so it never clips off-screen) -->
-              <div id="auth-user-dropdown" class="hidden fixed left-3 right-3 top-14 sm:absolute sm:left-auto sm:right-0 sm:top-full sm:mt-1.5 sm:w-64 bg-white rounded-2xl shadow-2xl border border-slate-200 p-2.5 z-50 text-xs space-y-1">
-                <div class="p-2.5 bg-slate-50 rounded-xl border border-slate-100 mb-1">
-                  <div class="font-bold text-slate-900" id="dropdown-full-name">Minh Nam</div>
-                  <div class="text-[11px] text-slate-500 truncate" id="dropdown-email">nam@example.com</div>
-                  <div class="text-[11px] font-semibold text-indigo-600 mt-1" id="dropdown-level-badge">Mục tiêu: B2 Intermediate</div>
+              <div id="auth-user-dropdown" class="hidden fixed left-3 right-3 top-14 sm:absolute sm:left-auto sm:right-0 sm:top-full sm:mt-1.5 sm:w-64 bg-slate-900 rounded-2xl shadow-2xl border border-slate-700 p-2.5 z-50 text-xs space-y-1">
+                <div class="p-2.5 bg-slate-800/90 rounded-xl border border-slate-700 mb-1">
+                  <div class="font-bold text-slate-100" id="dropdown-full-name">Minh Nam</div>
+                  <div class="text-[11px] text-slate-400 truncate" id="dropdown-email">nam@example.com</div>
+                  <div class="text-[11px] font-semibold text-indigo-400 mt-1" id="dropdown-level-badge">Mục tiêu: B2 Intermediate</div>
                 </div>
-                <button type="button" onclick="openAuthModal('forgot'); closeUserDropdown()" class="w-full text-left px-3 py-2 rounded-xl hover:bg-indigo-50 hover:text-indigo-700 font-semibold flex items-center gap-2 transition">
-                  <span>🔑</span>
+                <button type="button" onclick="openAuthModal('forgot'); closeUserDropdown()" class="w-full text-left px-3 py-2 rounded-xl text-slate-200 hover:bg-indigo-500/20 hover:text-indigo-200 font-semibold flex items-center gap-2 transition">
                   <div>
                     <div class="font-bold">Đổi / Đặt lại mật khẩu</div>
                     <div class="text-[10px] text-slate-400">Cập nhật mật khẩu bảo mật</div>
                   </div>
                 </button>
-                <button type="button" onclick="exportProgressJSON(); closeUserDropdown()" class="w-full text-left px-3 py-2 rounded-xl hover:bg-emerald-50 hover:text-emerald-700 font-semibold flex items-center gap-2 transition">
-                  <span>💾</span>
+                <button type="button" onclick="exportProgressJSON(); closeUserDropdown()" class="w-full text-left px-3 py-2 rounded-xl text-slate-200 hover:bg-emerald-500/20 hover:text-emerald-200 font-semibold flex items-center gap-2 transition">
                   <div>
                     <div class="font-bold">Sao lưu tiến độ (.json)</div>
                     <div class="text-[10px] text-slate-400">Tải file dự phòng về máy</div>
                   </div>
                 </button>
-                <div class="border-t border-slate-100 my-1"></div>
-                <button type="button" onclick="confirmLogout(); closeUserDropdown()" class="w-full text-left px-3 py-2 rounded-xl hover:bg-rose-50 text-rose-600 font-semibold flex items-center gap-2 transition">
-                  <span>🚪</span>
+                <div class="border-t border-slate-800 my-1"></div>
+                <button type="button" onclick="confirmLogout(); closeUserDropdown()" class="w-full text-left px-3 py-2 rounded-xl hover:bg-rose-500/20 text-rose-400 font-semibold flex items-center gap-2 transition">
                   <span>Đăng xuất tài khoản</span>
                 </button>
               </div>
@@ -186,89 +182,89 @@
         </div>
 
         <!-- Pronunciation & Audio Studio Controls -->
-        <div class="w-full sm:w-auto flex items-center justify-between sm:justify-end gap-1 bg-slate-100/90 p-1 rounded-xl border border-slate-200 min-w-0">
+        <div class="w-full sm:w-auto flex items-center justify-between sm:justify-end gap-1.5 bg-slate-950/80 p-1.5 rounded-xl border border-slate-800 min-w-0">
 
           <!-- Accent US / UK -->
-          <div class="inline-flex rounded-lg bg-white p-0.5 border border-slate-200 shadow-2xs">
-            <button type="button" id="accent-us-btn" onclick="setAccent('en-US')" class="px-2 py-1 rounded-md text-xs font-bold bg-indigo-600 text-white transition" title="Giọng Anh - Mỹ (US)">🇺🇸 US</button>
-            <button type="button" id="accent-uk-btn" onclick="setAccent('en-GB')" class="px-2 py-1 rounded-md text-xs font-bold text-slate-600 hover:text-slate-900 transition" title="Giọng Anh - Anh (UK)">🇬🇧 UK</button>
+          <div class="inline-flex rounded-lg bg-slate-900 p-0.5 border border-slate-700">
+            <button type="button" id="accent-us-btn" onclick="setAccent('en-US')" class="px-2.5 py-1 rounded-md text-xs font-bold bg-indigo-600 text-white shadow-sm shadow-indigo-500/30 transition" title="Giọng Anh - Mỹ (US)">US</button>
+            <button type="button" id="accent-uk-btn" onclick="setAccent('en-GB')" class="px-2.5 py-1 rounded-md text-xs font-bold text-slate-300 hover:text-white hover:bg-slate-800 transition" title="Giọng Anh - Anh (UK)">UK</button>
           </div>
 
           <!-- Speed Selector -->
-          <select id="speed-select" onchange="setSpeechSpeed(this.value)" aria-label="Tốc độ phát âm" class="bg-white text-slate-700 text-xs font-semibold px-2 py-1 rounded-lg border border-slate-200 focus:outline-none">
-            <option value="0.5">🐢 0.5x</option>
-            <option value="0.75">🚶 0.75x</option>
-            <option value="1" selected>🔊 1.0x</option>
-            <option value="1.2">⚡ 1.2x</option>
+          <select id="speed-select" onchange="setSpeechSpeed(this.value)" aria-label="Tốc độ phát âm" class="bg-slate-800 text-slate-100 text-xs font-semibold px-2.5 py-1 rounded-lg border border-slate-600 hover:border-slate-500 focus:outline-none focus:border-indigo-500">
+            <option value="0.5">0.5x</option>
+            <option value="0.75">0.75x</option>
+            <option value="1" selected>1.0x</option>
+            <option value="1.2">1.2x</option>
           </select>
 
           <!-- Auto-Speak Toggle -->
-          <button type="button" id="auto-speak-btn" onclick="toggleAutoSpeak()" class="px-2 py-1 rounded-lg text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200 hover:bg-indigo-100 transition" title="Tự động phát âm khi chuyển thẻ">
-            🔊 Tự đọc: BẬT
+          <button type="button" id="auto-speak-btn" onclick="toggleAutoSpeak()" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600/25 text-indigo-200 border border-indigo-500/50 hover:bg-indigo-600/40 active:scale-95 transition" title="Tự động phát âm khi chuyển thẻ">
+            Tự đọc: BẬT
           </button>
 
           <!-- Sound Effects Toggle -->
-          <button type="button" id="sfx-btn" onclick="toggleSfx()" class="px-2 py-1 rounded-lg text-xs font-semibold bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition" title="Bật/Tắt âm thanh hiệu ứng">
-            🔔
+          <button type="button" id="sfx-btn" onclick="toggleSfx()" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-800 text-slate-200 border border-slate-600 hover:bg-slate-700 hover:border-slate-500 active:scale-95 transition" title="Bật/Tắt âm thanh hiệu ứng">
+            SFX: BẬT
           </button>
         </div>
       </div>
     </div>
 
     <!-- NAVIGATION TABS & COMPACT FILTERS (No drawer trap — clean grid on mobile) -->
-    <div class="bg-slate-100/80 border-t border-slate-200/80">
-      <div class="max-w-7xl mx-auto px-3 sm:px-6 py-2 space-y-2">
+    <div class="bg-slate-900/95 border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-3 sm:px-6 py-2.5 space-y-2.5">
         <!-- 6 Navigation Tabs in a 3-col mobile grid / desktop flex row -->
         <nav class="grid grid-cols-3 sm:flex sm:flex-wrap items-center gap-1.5" aria-label="Chế độ học">
-          <button type="button" id="tab-btn-flashcard" onclick="switchTab('flashcard')" class="tab-nav-btn px-2.5 py-2 sm:py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-indigo-600 text-white shadow-xs text-center transition">
-            🗂️ Flashcard
+          <button type="button" id="tab-btn-flashcard" onclick="switchTab('flashcard')" class="tab-nav-btn px-3 py-2 sm:py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-indigo-600 text-white border border-indigo-400/50 shadow-md shadow-indigo-500/25 text-center active:scale-95 transition">
+            Flashcard
           </button>
-          <button type="button" id="tab-btn-dictation" onclick="switchTab('dictation')" class="tab-nav-btn px-2.5 py-2 sm:py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-700 bg-white/80 sm:bg-transparent hover:bg-white hover:text-slate-900 text-center transition">
-            🎧 Chính Tả
+          <button type="button" id="tab-btn-dictation" onclick="switchTab('dictation')" class="tab-nav-btn px-3 py-2 sm:py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-200 bg-slate-800/90 border border-slate-700 hover:bg-slate-700 hover:border-slate-500 hover:text-white text-center active:scale-95 transition">
+            Chính Tả
           </button>
-          <button type="button" id="tab-btn-quiz" onclick="switchTab('quiz')" class="tab-nav-btn px-2.5 py-2 sm:py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-700 bg-white/80 sm:bg-transparent hover:bg-white hover:text-slate-900 text-center transition">
-            🧠 Trắc Nghiệm
+          <button type="button" id="tab-btn-quiz" onclick="switchTab('quiz')" class="tab-nav-btn px-3 py-2 sm:py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-200 bg-slate-800/90 border border-slate-700 hover:bg-slate-700 hover:border-slate-500 hover:text-white text-center active:scale-95 transition">
+            Trắc Nghiệm
           </button>
-          <button type="button" id="tab-btn-match" onclick="switchTab('match')" class="tab-nav-btn px-2.5 py-2 sm:py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-700 bg-white/80 sm:bg-transparent hover:bg-white hover:text-slate-900 text-center transition">
-            🎮 Ghép Thẻ
+          <button type="button" id="tab-btn-match" onclick="switchTab('match')" class="tab-nav-btn px-3 py-2 sm:py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-200 bg-slate-800/90 border border-slate-700 hover:bg-slate-700 hover:border-slate-500 hover:text-white text-center active:scale-95 transition">
+            Ghép Thẻ
           </button>
-          <button type="button" id="tab-btn-explorer" onclick="switchTab('explorer')" class="tab-nav-btn px-2.5 py-2 sm:py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-700 bg-white/80 sm:bg-transparent hover:bg-white hover:text-slate-900 text-center transition">
-            📚 Kho 3000 Từ
+          <button type="button" id="tab-btn-explorer" onclick="switchTab('explorer')" class="tab-nav-btn px-3 py-2 sm:py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-200 bg-slate-800/90 border border-slate-700 hover:bg-slate-700 hover:border-slate-500 hover:text-white text-center active:scale-95 transition">
+            Kho 3000 Từ
           </button>
-          <button type="button" id="tab-btn-stats" onclick="switchTab('stats')" class="tab-nav-btn px-2.5 py-2 sm:py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-700 bg-white/80 sm:bg-transparent hover:bg-white hover:text-slate-900 text-center transition">
-            📊 Tiến Độ
+          <button type="button" id="tab-btn-stats" onclick="switchTab('stats')" class="tab-nav-btn px-3 py-2 sm:py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-200 bg-slate-800/90 border border-slate-700 hover:bg-slate-700 hover:border-slate-500 hover:text-white text-center active:scale-95 transition">
+            Tiến Độ
           </button>
         </nav>
 
         <!-- Global Scope Filters (Strictly bounded 2-col on mobile, never overflows 100vw) -->
         <div class="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-1.5 w-full min-w-0">
-          <select id="filter-pack" onchange="applyGlobalFilter()" aria-label="Chọn chặng từ vựng" class="min-w-0 w-full sm:w-auto truncate bg-white text-slate-700 text-xs font-medium px-2 py-1.5 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-            <option value="all">📦 Tất cả 3000 từ</option>
+          <select id="filter-pack" onchange="applyGlobalFilter()" aria-label="Chọn chặng từ vựng" class="min-w-0 w-full sm:w-auto truncate bg-slate-800 text-slate-100 text-xs font-medium px-2.5 py-1.5 rounded-lg border border-slate-700 hover:border-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <option value="all">Tất cả 3000 từ</option>
           </select>
 
-          <select id="filter-level" onchange="applyGlobalFilter()" aria-label="Chọn cấp độ CEFR" class="min-w-0 w-full sm:w-auto truncate bg-white text-slate-700 text-xs font-medium px-2 py-1.5 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-            <option value="all">🎓 Mọi cấp (A1–B2)</option>
-            <option value="A1">🟢 A1 — Cơ bản</option>
-            <option value="A2">🔵 A2 — Sơ cấp</option>
-            <option value="B1">🟣 B1 — Trung cấp</option>
-            <option value="B2">🟠 B2 — Cao cấp</option>
+          <select id="filter-level" onchange="applyGlobalFilter()" aria-label="Chọn cấp độ CEFR" class="min-w-0 w-full sm:w-auto truncate bg-slate-800 text-slate-100 text-xs font-medium px-2.5 py-1.5 rounded-lg border border-slate-700 hover:border-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <option value="all">Mọi cấp (A1–B2)</option>
+            <option value="A1">A1 — Cơ bản</option>
+            <option value="A2">A2 — Sơ cấp</option>
+            <option value="B1">B1 — Trung cấp</option>
+            <option value="B2">B2 — Cao cấp</option>
           </select>
 
-          <select id="filter-topic" onchange="applyGlobalFilter()" aria-label="Chọn chủ đề" class="min-w-0 w-full sm:w-auto truncate bg-white text-slate-700 text-xs font-medium px-2 py-1.5 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-            <option value="all">🏷️ Tất cả 12 chủ đề</option>
+          <select id="filter-topic" onchange="applyGlobalFilter()" aria-label="Chọn chủ đề" class="min-w-0 w-full sm:w-auto truncate bg-slate-800 text-slate-100 text-xs font-medium px-2.5 py-1.5 rounded-lg border border-slate-700 hover:border-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <option value="all">Tất cả 12 chủ đề</option>
           </select>
 
-          <select id="filter-status" onchange="applyGlobalFilter()" aria-label="Chọn trạng thái ghi nhớ" class="min-w-0 w-full sm:w-auto truncate bg-white text-slate-700 text-xs font-medium px-2 py-1.5 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-            <option value="all">📌 Mọi trạng thái</option>
-            <option value="new">🆕 Chưa học</option>
-            <option value="due">⏰ Cần ôn hôm nay</option>
-            <option value="learning">📖 Đang học</option>
-            <option value="mastered">✅ Đã thuộc lòng</option>
-            <option value="starred">⭐ Đánh dấu Sao</option>
-            <option value="hard">⚠️ Từ hay sai</option>
+          <select id="filter-status" onchange="applyGlobalFilter()" aria-label="Chọn trạng thái ghi nhớ" class="min-w-0 w-full sm:w-auto truncate bg-slate-800 text-slate-100 text-xs font-medium px-2.5 py-1.5 rounded-lg border border-slate-700 hover:border-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <option value="all">Mọi trạng thái</option>
+            <option value="new">Chưa học</option>
+            <option value="due">Cần ôn hôm nay</option>
+            <option value="learning">Đang học</option>
+            <option value="mastered">Đã thuộc lòng</option>
+            <option value="starred">Đánh dấu Sao</option>
+            <option value="hard">Từ hay sai</option>
           </select>
 
-          <span id="filter-count-badge" class="hidden sm:inline-block px-2.5 py-1.5 rounded-lg bg-indigo-100 text-indigo-800 text-xs font-bold shrink-0">3000 từ</span>
+          <span id="filter-count-badge" class="hidden sm:inline-block px-2.5 py-1.5 rounded-lg bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-xs font-bold shrink-0">3000 từ</span>
         </div>
       </div>
     </div>
@@ -285,29 +281,29 @@
         <!-- Quizlet-style Status Counters & Top Bar -->
         <div class="flex items-center justify-between gap-1.5 mb-2.5">
           <!-- Left: Still Learning Pill (Swipe Left or Tap) -->
-          <button type="button" onclick="triggerQuizletSwipe('left', event)" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-2xl bg-amber-50 hover:bg-amber-100 active:scale-95 border border-amber-200 text-amber-800 text-xs font-extrabold shadow-2xs transition" title="Bấm hoặc vuốt sang trái: Đang học">
-            <span>👈 Đang học:</span>
-            <span id="fc-quizlet-learning" class="px-1.5 py-0.5 rounded-full bg-amber-200/80 text-amber-950 font-mono-ipa">0</span>
+          <button type="button" onclick="triggerQuizletSwipe('left', event)" class="flex items-center gap-1.5 px-3 py-1.5 rounded-2xl bg-amber-500/20 hover:bg-amber-500/30 active:scale-95 border border-amber-500/50 text-amber-200 text-xs font-extrabold shadow-sm shadow-amber-500/10 transition" title="Bấm hoặc vuốt sang trái: Đang học">
+            <span>Đang học:</span>
+            <span id="fc-quizlet-learning" class="px-1.5 py-0.5 rounded-full bg-amber-500/30 text-amber-100 font-mono-ipa">0</span>
           </button>
 
           <!-- Center: Card Index & SRS Status -->
           <div class="flex items-center gap-1.5">
-            <span id="fc-index-label" class="text-xs sm:text-sm font-extrabold text-slate-800 bg-white px-2.5 py-1.5 rounded-2xl border border-slate-200 shadow-2xs whitespace-nowrap">1 / 3000</span>
-            <span id="fc-srs-badge" class="hidden sm:inline-block text-xs font-semibold px-2.5 py-1 rounded-xl bg-slate-200 text-slate-700">🆕 Chưa học</span>
+            <span id="fc-index-label" class="text-xs sm:text-sm font-extrabold text-slate-100 bg-slate-900 px-3 py-1.5 rounded-2xl border border-slate-700 shadow-sm whitespace-nowrap">1 / 3000</span>
+            <span id="fc-srs-badge" class="hidden sm:inline-block text-xs font-semibold px-2.5 py-1 rounded-xl bg-slate-800 text-slate-300 border border-slate-700">Chưa học</span>
           </div>
 
           <!-- Right: Know / Mastered Pill (Swipe Right or Tap) -->
-          <button type="button" onclick="triggerQuizletSwipe('right', event)" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-2xl bg-emerald-50 hover:bg-emerald-100 active:scale-95 border border-emerald-200 text-emerald-800 text-xs font-extrabold shadow-2xs transition" title="Bấm hoặc vuốt sang phải: Đã thuộc lòng">
-            <span id="fc-quizlet-known" class="px-1.5 py-0.5 rounded-full bg-emerald-200/80 text-emerald-950 font-mono-ipa">0</span>
-            <span>Đã thuộc 👉</span>
+          <button type="button" onclick="triggerQuizletSwipe('right', event)" class="flex items-center gap-1.5 px-3 py-1.5 rounded-2xl bg-emerald-500/20 hover:bg-emerald-500/30 active:scale-95 border border-emerald-500/50 text-emerald-200 text-xs font-extrabold shadow-sm shadow-emerald-500/10 transition" title="Bấm hoặc vuốt sang phải: Đã thuộc lòng">
+            <span id="fc-quizlet-known" class="px-1.5 py-0.5 rounded-full bg-emerald-500/30 text-emerald-100 font-mono-ipa">0</span>
+            <span>Đã thuộc</span>
           </button>
         </div>
 
         <!-- Swipe Gesture Hint Banner -->
-        <div class="flex items-center justify-between gap-2 px-3 py-1.5 mb-2.5 rounded-xl bg-indigo-50/80 border border-indigo-100 text-[11px] text-indigo-900">
-          <span class="truncate">👆 <strong>Chạm:</strong> Lật • <strong>Vuốt trái 👈:</strong> Đang học • <strong>Vuốt phải 👉:</strong> Đã thuộc</span>
-          <button type="button" id="fc-undo-btn" onclick="undoLastSwipe(event)" disabled class="px-2.5 py-0.5 rounded-lg bg-white border border-indigo-200 text-indigo-700 font-bold disabled:opacity-40 disabled:cursor-not-allowed hover:bg-indigo-100 transition shrink-0">
-            ↩️ Hoàn tác
+        <div class="flex items-center justify-between gap-2 px-3 py-1.5 mb-2.5 rounded-xl bg-slate-900 border border-slate-800 text-[11px] text-slate-300">
+          <span class="truncate"><strong class="text-indigo-300">Chạm:</strong> Lật • <strong class="text-amber-300">Vuốt trái:</strong> Đang học • <strong class="text-emerald-300">Vuốt phải:</strong> Đã thuộc</span>
+          <button type="button" id="fc-undo-btn" onclick="undoLastSwipe(event)" disabled class="px-3 py-1 rounded-lg bg-slate-800 border border-slate-600 text-slate-100 font-bold disabled:opacity-40 disabled:cursor-not-allowed hover:bg-slate-700 hover:border-indigo-400 active:scale-95 transition shrink-0">
+            Hoàn tác
           </button>
         </div>
 
@@ -315,106 +311,105 @@
         <div class="overflow-hidden px-1 py-1 -mx-1">
           <div id="fc-swipe-stage" class="perspective-1000 w-full h-[325px] sm:h-[390px] touch-pan-y relative select-none">
             <!-- Quizlet Dynamic Swipe Overlay Badges -->
-            <div id="fc-swipe-badge-left" class="pointer-events-none opacity-0 transition-opacity duration-150 absolute top-5 right-5 z-30 px-3.5 py-1.5 rounded-2xl bg-amber-500 text-white font-extrabold text-xs sm:text-base shadow-lg border-2 border-white rotate-6">
-              🟠 ĐANG HỌC (ÔN LẠI)
+            <div id="fc-swipe-badge-left" class="pointer-events-none opacity-0 transition-opacity duration-150 absolute top-5 right-5 z-30 px-3.5 py-1.5 rounded-2xl bg-amber-500 text-slate-950 font-extrabold text-xs sm:text-base shadow-lg border-2 border-amber-200 rotate-6">
+              ĐANG HỌC (ÔN LẠI)
             </div>
-            <div id="fc-swipe-badge-right" class="pointer-events-none opacity-0 transition-opacity duration-150 absolute top-5 left-5 z-30 px-3.5 py-1.5 rounded-2xl bg-emerald-600 text-white font-extrabold text-xs sm:text-base shadow-lg border-2 border-white -rotate-6">
-              ✅ ĐÃ THUỘC LÒNG
+            <div id="fc-swipe-badge-right" class="pointer-events-none opacity-0 transition-opacity duration-150 absolute top-5 left-5 z-30 px-3.5 py-1.5 rounded-2xl bg-emerald-500 text-slate-950 font-extrabold text-xs sm:text-base shadow-lg border-2 border-emerald-200 -rotate-6">
+              ĐÃ THUỘC LÒNG
             </div>
 
             <div id="fc-card-wrapper" class="w-full h-full swipe-card-transition">
-              <div id="fc-card-inner" class="transform-style-3d relative w-full h-full cursor-pointer rounded-3xl shadow-lg border-2 border-slate-200/90 bg-white">
+              <div id="fc-card-inner" class="transform-style-3d relative w-full h-full cursor-pointer rounded-3xl shadow-xl border-2 border-slate-800 bg-slate-900">
 
                 <!-- FRONT SIDE -->
-                <div id="fc-front-face" class="backface-hidden absolute inset-0 rounded-3xl bg-gradient-to-br from-white via-white to-indigo-50/40 p-4 sm:p-7 flex flex-col justify-between">
+                <div id="fc-front-face" class="backface-hidden absolute inset-0 rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950/60 p-4 sm:p-7 flex flex-col justify-between">
                   <!-- Card Header Metadata -->
                   <div class="flex items-center justify-between gap-2">
                     <div class="flex items-center gap-1.5 flex-wrap min-w-0">
                       <span id="fc-front-id" class="text-xs font-mono-ipa font-bold text-slate-400">#0001</span>
-                      <span id="fc-front-level" class="px-2 py-0.5 rounded-full text-xs font-bold bg-indigo-100 text-indigo-700">B2</span>
-                      <span id="fc-front-topic" class="px-2 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-600 truncate max-w-[140px] sm:max-w-none">Chủ đề</span>
+                      <span id="fc-front-level" class="px-2 py-0.5 rounded-full text-xs font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">B2</span>
+                      <span id="fc-front-topic" class="px-2 py-0.5 rounded-full text-xs font-medium bg-slate-800 text-slate-300 border border-slate-700 truncate max-w-[140px] sm:max-w-none">Chủ đề</span>
                     </div>
-                    <button type="button" id="fc-star-btn" onclick="toggleCurrentStar(event)" class="p-1.5 rounded-full hover:bg-amber-50 text-slate-300 hover:text-amber-400 transition text-xl leading-none shrink-0" title="Đánh dấu sao (Phím S)">
-                      ★
+                    <button type="button" id="fc-star-btn" onclick="toggleCurrentStar(event)" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 border border-slate-700 transition text-xs font-bold leading-none shrink-0" title="Đánh dấu sao (Phím S)">
+                      Lưu sao
                     </button>
                   </div>
 
                   <!-- Center Word & Phonetics -->
                   <div class="text-center my-auto space-y-2.5 py-1">
                     <div class="inline-flex items-baseline justify-center gap-2 flex-wrap">
-                      <h2 id="fc-front-word" class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight break-words">abandon</h2>
-                      <span id="fc-front-pos" class="px-2 py-0.5 rounded-lg text-xs sm:text-sm font-semibold bg-violet-100 text-violet-700 italic">v</span>
+                      <h2 id="fc-front-word" class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight break-words">abandon</h2>
+                      <span id="fc-front-pos" class="px-2 py-0.5 rounded-lg text-xs sm:text-sm font-semibold bg-violet-500/20 text-violet-300 border border-violet-500/30 italic">v</span>
                     </div>
-                    <div id="fc-front-ipa" class="text-base sm:text-xl font-mono-ipa text-indigo-600 font-medium">/əˈbændən/</div>
+                    <div id="fc-front-ipa" class="text-base sm:text-xl font-mono-ipa text-indigo-400 font-medium">/əˈbændən/</div>
 
                     <!-- Pronunciation Buttons (Spelling button removed as requested) -->
-                    <div class="flex items-center justify-center gap-2 flex-wrap pt-1" onclick="event.stopPropagation()">
-                      <button type="button" onclick="speakCurrentWord(null, event)" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white text-xs sm:text-sm font-bold shadow-xs transition">
-                        <span>🔊</span> Nghe chuẩn
+                    <div class="flex items-center justify-center gap-2.5 flex-wrap pt-1" onclick="event.stopPropagation()">
+                      <button type="button" onclick="speakCurrentWord(null, event)" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white border border-indigo-400/50 text-xs sm:text-sm font-bold shadow-md shadow-indigo-500/25 transition">
+                        Nghe chuẩn
                       </button>
-                      <button type="button" onclick="speakCurrentWord(0.55, event)" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-amber-50 hover:bg-amber-100 active:scale-95 text-amber-800 border border-amber-200 text-xs sm:text-sm font-semibold transition">
-                        <span>🐢</span> Nghe chậm
+                      <button type="button" onclick="speakCurrentWord(0.55, event)" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 active:scale-95 text-amber-200 border border-amber-500/50 text-xs sm:text-sm font-bold shadow-sm transition">
+                        Nghe chậm
                       </button>
                     </div>
 
                     <!-- Contextual Cloze Hint on Front -->
-                    <div id="fc-cloze-hint-box" class="max-w-lg mx-auto mt-2 px-3 py-2 rounded-2xl bg-slate-50 border border-slate-200/80 text-xs text-slate-600 line-clamp-2">
-                      <span class="font-semibold text-indigo-600">💡 Ngữ cảnh:</span>
+                    <div id="fc-cloze-hint-box" class="max-w-lg mx-auto mt-2 px-3.5 py-2 rounded-2xl bg-slate-950/70 border border-slate-800 text-xs text-slate-300 line-clamp-2">
+                      <span class="font-semibold text-indigo-400">Ngữ cảnh:</span>
                       <span id="fc-cloze-hint-text" class="italic ml-1">They had to _____ the car in the heavy snow.</span>
                     </div>
                   </div>
 
                   <!-- Card Footer Prompt -->
-                  <div class="flex items-center justify-between text-[11px] text-slate-400 border-t border-slate-100 pt-2">
-                    <span class="hidden sm:inline">Phím tắt: <kbd class="px-1 bg-slate-100 rounded text-slate-600 font-mono-ipa">Space</kbd> Lật • <kbd class="px-1 bg-slate-100 rounded text-slate-600 font-mono-ipa">←/→</kbd> Chuyển</span>
-                    <span class="text-indigo-600 font-bold mx-auto sm:mx-0">👆 Chạm vào thẻ để lật xem nghĩa ➔</span>
+                  <div class="flex items-center justify-between text-[11px] text-slate-400 border-t border-slate-800 pt-2">
+                    <span class="hidden sm:inline">Phím tắt: <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-200 font-mono-ipa">Space</kbd> Lật • <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-200 font-mono-ipa">←/→</kbd> Chuyển</span>
+                    <span class="text-indigo-400 font-bold mx-auto sm:mx-0">Chạm vào thẻ để lật xem nghĩa</span>
                   </div>
                 </div>
 
                 <!-- BACK SIDE -->
-                <div id="fc-back-face" class="backface-hidden rotate-y-180 absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-900 text-white p-4 sm:p-7 flex flex-col justify-between">
-                <div class="flex items-center justify-between border-b border-white/10 pb-2">
+                <div id="fc-back-face" class="backface-hidden rotate-y-180 absolute inset-0 rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950/90 to-slate-900 text-white p-4 sm:p-7 flex flex-col justify-between">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-2">
                   <div class="flex items-center gap-2 flex-wrap">
                     <span id="fc-back-word" class="text-lg sm:text-2xl font-extrabold text-white">abandon</span>
                     <span id="fc-back-ipa" class="text-xs sm:text-sm font-mono-ipa text-indigo-300">/əˈbændən/</span>
                   </div>
                   <div class="flex items-center gap-1.5" onclick="event.stopPropagation()">
-                    <button type="button" onclick="speakCurrentWord(null)" class="px-2.5 py-1 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition">
-                      🔊 Từ
+                    <button type="button" onclick="speakCurrentWord(null)" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-100 text-xs font-bold shadow-sm active:scale-95 transition">
+                      Nghe từ
                     </button>
-                    <button type="button" onclick="speakCurrentExample()" class="px-2.5 py-1 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-white text-xs font-semibold transition">
-                      🗣️ Câu ví dụ
+                    <button type="button" onclick="speakCurrentExample()" class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 border border-indigo-400/50 text-white text-xs font-bold shadow-sm shadow-indigo-500/20 active:scale-95 transition">
+                      Câu ví dụ
                     </button>
                   </div>
                 </div>
 
                 <div class="my-auto space-y-2.5 py-1">
                   <!-- Vietnamese Meaning -->
-                  <div class="bg-white/10 backdrop-blur-xs rounded-2xl p-3 sm:p-3.5 border border-white/15">
+                  <div class="bg-slate-950/60 rounded-2xl p-3 sm:p-3.5 border border-slate-800">
                     <div class="text-[10px] uppercase tracking-wider text-indigo-300 font-bold mb-0.5">Nghĩa tiếng Việt thông dụng</div>
                     <div id="fc-back-meaning" class="text-xl sm:text-3xl font-extrabold text-amber-300 leading-snug">từ bỏ, bỏ rơi</div>
                   </div>
 
                   <!-- Collocation / Memory Tip -->
-                  <div class="flex items-start gap-2 bg-indigo-900/50 rounded-xl px-3 py-2 border border-indigo-400/20 text-xs">
-                    <span>🧩</span>
+                  <div class="flex items-start gap-2 bg-indigo-950/60 rounded-xl px-3 py-2 border border-indigo-500/30 text-xs">
                     <div>
-                      <span class="font-bold text-indigo-200">Cụm từ ghi nhớ: </span>
-                      <span id="fc-back-collocation" class="text-white font-medium">abandon a plan / abandon hope</span>
+                      <span class="font-bold text-indigo-300">Cụm từ ghi nhớ: </span>
+                      <span id="fc-back-collocation" class="text-slate-100 font-medium">abandon a plan / abandon hope</span>
                     </div>
                   </div>
 
                   <!-- Bilingual Example Sentence -->
-                  <div class="bg-slate-800/70 rounded-2xl p-3 border border-white/10 space-y-0.5">
-                    <p id="fc-back-ex-en" class="text-xs sm:text-sm font-medium text-white leading-relaxed">They had to abandon the car in the heavy snow.</p>
+                  <div class="bg-slate-950/60 rounded-2xl p-3 border border-slate-800 space-y-0.5">
+                    <p id="fc-back-ex-en" class="text-xs sm:text-sm font-medium text-slate-100 leading-relaxed">They had to abandon the car in the heavy snow.</p>
                     <p id="fc-back-ex-vi" class="text-[11px] sm:text-xs text-slate-300 italic">Họ đã phải bỏ lại chiếc xe trong tuyết dày.</p>
                   </div>
 
-                  <div id="fc-back-note" class="hidden text-xs bg-amber-500/20 border border-amber-400/30 text-amber-200 rounded-xl px-3 py-1.5"></div>
+                  <div id="fc-back-note" class="hidden text-xs bg-amber-500/20 border border-amber-400/40 text-amber-200 rounded-xl px-3 py-1.5"></div>
                 </div>
 
-                <div class="flex items-center justify-between text-[11px] text-slate-400 border-t border-white/10 pt-2">
-                  <span>Vuốt trái: 🟠 Đang học • Vuốt phải: ✅ Đã thuộc</span>
+                <div class="flex items-center justify-between text-[11px] text-slate-400 border-t border-slate-800 pt-2">
+                  <span>Vuốt trái: Đang học • Vuốt phải: Đã thuộc</span>
                   <span class="text-indigo-300 font-semibold">Chạm để lật lại</span>
                 </div>
                 </div>
@@ -425,60 +420,57 @@
 
         <!-- Quizlet Primary Action Bar (Thumb-Friendly for Mobile) -->
         <div class="mt-2.5 grid grid-cols-3 gap-2">
-          <button type="button" onclick="triggerQuizletSwipe('left', event)" class="py-3 px-2 rounded-2xl bg-amber-50 hover:bg-amber-500 active:scale-95 text-amber-900 hover:text-white border-2 border-amber-300 hover:border-amber-500 font-extrabold text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-2xs transition">
-            <span>👈</span>
+          <button type="button" onclick="triggerQuizletSwipe('left', event)" class="py-3 px-2 rounded-2xl bg-amber-500/20 hover:bg-amber-500 active:scale-95 text-amber-200 hover:text-slate-950 border-2 border-amber-500/60 hover:border-amber-400 font-extrabold text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-md shadow-amber-500/10 transition">
             <span>Đang học</span>
           </button>
 
-          <button type="button" onclick="flipFlashcard(event)" class="py-3 px-2 rounded-2xl bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-sm shadow-indigo-200 transition">
-            <span>🔄</span>
+          <button type="button" onclick="flipFlashcard(event)" class="py-3 px-2 rounded-2xl bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white border-2 border-indigo-400/60 font-extrabold text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-lg shadow-indigo-500/30 transition">
             <span>Lật thẻ</span>
           </button>
 
-          <button type="button" onclick="triggerQuizletSwipe('right', event)" class="py-3 px-2 rounded-2xl bg-emerald-50 hover:bg-emerald-600 active:scale-95 text-emerald-900 hover:text-white border-2 border-emerald-300 hover:border-emerald-600 font-extrabold text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-2xs transition">
+          <button type="button" onclick="triggerQuizletSwipe('right', event)" class="py-3 px-2 rounded-2xl bg-emerald-500/20 hover:bg-emerald-500 active:scale-95 text-emerald-200 hover:text-slate-950 border-2 border-emerald-500/60 hover:border-emerald-400 font-extrabold text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-md shadow-emerald-500/10 transition">
             <span>Đã thuộc</span>
-            <span>👉</span>
           </button>
         </div>
 
         <!-- Secondary Navigation & Tools Bar -->
-        <div class="mt-2.5 flex flex-wrap items-center justify-between gap-1.5 bg-white p-2 rounded-2xl border border-slate-200 shadow-2xs">
-          <button type="button" onclick="prevFlashcard(event)" class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold transition">
+        <div class="mt-2.5 flex flex-wrap items-center justify-between gap-1.5 bg-slate-900 p-2 rounded-2xl border border-slate-800 shadow-sm">
+          <button type="button" onclick="prevFlashcard(event)" class="px-3.5 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-100 text-xs font-bold shadow-sm active:scale-95 transition">
             ← Trước
           </button>
           <div class="flex items-center gap-1.5 flex-wrap justify-center">
-            <button type="button" id="fc-direction-btn" onclick="toggleCardDirection()" class="px-2.5 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 text-xs font-semibold transition">
-              🔄 Mặt: Anh
+            <button type="button" id="fc-direction-btn" onclick="toggleCardDirection()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 text-xs font-bold shadow-sm active:scale-95 transition">
+              Mặt: Anh
             </button>
-            <button type="button" onclick="shuffleFlashcards()" class="px-2.5 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-700 border border-slate-200 text-xs font-semibold transition">
-              🔀 Trộn
+            <button type="button" onclick="shuffleFlashcards()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 text-xs font-bold shadow-sm active:scale-95 transition">
+              Trộn thẻ
             </button>
-            <button type="button" onclick="openCurrentWordDetail()" class="px-2.5 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 text-xs font-semibold transition">
-              📝 Ghi chú
+            <button type="button" onclick="openCurrentWordDetail()" class="px-3 py-1.5 rounded-xl bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-200 border border-indigo-500/50 text-xs font-bold shadow-sm active:scale-95 transition">
+              Ghi chú
             </button>
           </div>
-          <button type="button" onclick="nextFlashcard(event)" class="px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold transition">
+          <button type="button" onclick="nextFlashcard(event)" class="px-3.5 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 border border-indigo-400/50 text-white text-xs font-bold shadow-md shadow-indigo-500/20 active:scale-95 transition">
             Tiếp →
           </button>
         </div>
 
         <!-- Detailed SRS Interval Buttons (Compact 4-Column Row) -->
         <div class="mt-2.5 grid grid-cols-4 gap-1.5">
-          <button type="button" onclick="rateCurrentCard(1, event)" class="p-2 rounded-xl bg-rose-50/80 hover:bg-rose-600 border border-rose-200 text-center group transition">
-            <div class="text-[11px] font-extrabold text-rose-700 group-hover:text-white">1 • Quên</div>
-            <div id="fc-interval-1" class="text-[10px] font-mono-ipa text-rose-500 group-hover:text-rose-100">10p</div>
+          <button type="button" onclick="rateCurrentCard(1, event)" class="p-2 rounded-xl bg-rose-950/60 hover:bg-rose-600 border-2 border-rose-500/50 hover:border-rose-400 text-center group active:scale-95 transition">
+            <div class="text-[11px] font-extrabold text-rose-200 group-hover:text-white">1 • Quên</div>
+            <div id="fc-interval-1" class="text-[10px] font-mono-ipa text-rose-400 group-hover:text-rose-100">10p</div>
           </button>
-          <button type="button" onclick="rateCurrentCard(2, event)" class="p-2 rounded-xl bg-amber-50/80 hover:bg-amber-500 border border-amber-200 text-center group transition">
-            <div class="text-[11px] font-extrabold text-amber-800 group-hover:text-white">2 • Khó</div>
-            <div id="fc-interval-2" class="text-[10px] font-mono-ipa text-amber-600 group-hover:text-amber-100">1 ngày</div>
+          <button type="button" onclick="rateCurrentCard(2, event)" class="p-2 rounded-xl bg-amber-950/60 hover:bg-amber-500 border-2 border-amber-500/50 hover:border-amber-400 text-center group active:scale-95 transition">
+            <div class="text-[11px] font-extrabold text-amber-200 group-hover:text-slate-950">2 • Khó</div>
+            <div id="fc-interval-2" class="text-[10px] font-mono-ipa text-amber-400 group-hover:text-slate-900">1 ngày</div>
           </button>
-          <button type="button" onclick="rateCurrentCard(3, event)" class="p-2 rounded-xl bg-sky-50/80 hover:bg-sky-600 border border-sky-200 text-center group transition">
-            <div class="text-[11px] font-extrabold text-sky-800 group-hover:text-white">3 • Nhớ</div>
-            <div id="fc-interval-3" class="text-[10px] font-mono-ipa text-sky-600 group-hover:text-sky-100">3 ngày</div>
+          <button type="button" onclick="rateCurrentCard(3, event)" class="p-2 rounded-xl bg-sky-950/60 hover:bg-sky-600 border-2 border-sky-500/50 hover:border-sky-400 text-center group active:scale-95 transition">
+            <div class="text-[11px] font-extrabold text-sky-200 group-hover:text-white">3 • Nhớ</div>
+            <div id="fc-interval-3" class="text-[10px] font-mono-ipa text-sky-400 group-hover:text-sky-100">3 ngày</div>
           </button>
-          <button type="button" onclick="rateCurrentCard(4, event)" class="p-2 rounded-xl bg-emerald-50/80 hover:bg-emerald-600 border border-emerald-200 text-center group transition">
-            <div class="text-[11px] font-extrabold text-emerald-800 group-hover:text-white">4 • Thuộc</div>
-            <div id="fc-interval-4" class="text-[10px] font-mono-ipa text-emerald-600 group-hover:text-emerald-100">7+ ngày</div>
+          <button type="button" onclick="rateCurrentCard(4, event)" class="p-2 rounded-xl bg-emerald-950/60 hover:bg-emerald-600 border-2 border-emerald-500/50 hover:border-emerald-400 text-center group active:scale-95 transition">
+            <div class="text-[11px] font-extrabold text-emerald-200 group-hover:text-white">4 • Thuộc</div>
+            <div id="fc-interval-4" class="text-[10px] font-mono-ipa text-emerald-400 group-hover:text-emerald-100">7+ ngày</div>
           </button>
         </div>
       </div>
@@ -488,64 +480,64 @@
     <!-- TAB 2: AUDIO DICTATION & WORD SCRAMBLE                                -->
     <!-- ===================================================================== -->
     <section id="panel-dictation" class="hidden space-y-5">
-      <div class="max-w-3xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-sm p-5 sm:p-8 space-y-6">
-        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+      <div class="max-w-3xl mx-auto bg-slate-900 rounded-3xl border border-slate-800 shadow-xl p-5 sm:p-8 space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-4">
           <div>
-            <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">🎧 Luyện Nghe Phát Âm &amp; Viết Chính Tả</h2>
-            <p class="text-xs text-slate-500">Nghe giọng đọc bản xứ và gõ lại chính xác hoặc ghép các chữ cái xáo trộn</p>
+            <h2 class="text-lg sm:text-xl font-extrabold text-slate-100">Luyện Nghe Phát Âm &amp; Viết Chính Tả</h2>
+            <p class="text-xs text-slate-400">Nghe giọng đọc bản xứ và gõ lại chính xác hoặc ghép các chữ cái xáo trộn</p>
           </div>
           <div class="flex items-center gap-2">
-            <div class="inline-flex rounded-xl bg-slate-100 p-1 border border-slate-200">
-              <button type="button" id="dict-mode-type-btn" onclick="setDictationSubMode('type')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 text-white transition">⌨️ Nghe &amp; Gõ từ</button>
-              <button type="button" id="dict-mode-scramble-btn" onclick="setDictationSubMode('scramble')" class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition">🧩 Ghép chữ cái</button>
+            <div class="inline-flex rounded-xl bg-slate-950 p-1 border border-slate-800">
+              <button type="button" id="dict-mode-type-btn" onclick="setDictationSubMode('type')" class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow-sm shadow-indigo-500/30 transition">Nghe &amp; Gõ từ</button>
+              <button type="button" id="dict-mode-scramble-btn" onclick="setDictationSubMode('scramble')" class="px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition">Ghép chữ cái</button>
             </div>
           </div>
         </div>
 
         <!-- Score & Streak Row -->
-        <div class="flex flex-wrap items-center justify-between gap-2 bg-slate-50 px-4 py-2.5 rounded-2xl border border-slate-200/80 text-xs font-semibold">
-          <div>Điểm chính tả: <span id="dict-score" class="text-indigo-600 font-extrabold text-sm">0</span></div>
-          <div>Chuỗi đúng liên tiếp: <span id="dict-streak" class="text-amber-600 font-extrabold text-sm">0 🔥</span></div>
-          <div>Từ hiện tại: <span id="dict-progress" class="text-slate-700 font-bold">1 / 3000</span></div>
+        <div class="flex flex-wrap items-center justify-between gap-2 bg-slate-950/70 px-4 py-2.5 rounded-2xl border border-slate-800 text-xs font-semibold text-slate-300">
+          <div>Điểm chính tả: <span id="dict-score" class="text-indigo-400 font-extrabold text-sm">0</span></div>
+          <div>Chuỗi đúng liên tiếp: <span id="dict-streak" class="text-amber-400 font-extrabold text-sm">0</span></div>
+          <div>Từ hiện tại: <span id="dict-progress" class="text-slate-100 font-bold">1 / 3000</span></div>
         </div>
 
         <!-- Audio Prompt Card -->
         <div class="text-center space-y-4 py-3">
           <div class="flex items-center justify-center gap-2">
-            <span id="dict-level-badge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-100 text-indigo-700">A2</span>
-            <span id="dict-topic-badge" class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-600">Chủ đề</span>
-            <span id="dict-pos-badge" class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-violet-100 text-violet-700 italic">v</span>
+            <span id="dict-level-badge" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">A2</span>
+            <span id="dict-topic-badge" class="px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-800 text-slate-300 border border-slate-700">Chủ đề</span>
+            <span id="dict-pos-badge" class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-violet-500/20 text-violet-300 border border-violet-500/30 italic">v</span>
           </div>
 
           <!-- Big Audio Play Buttons -->
           <div class="flex items-center justify-center gap-3 flex-wrap">
-            <button type="button" onclick="speakDictationWord(null)" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-sm sm:text-base shadow-md shadow-indigo-200 transition">
-              <span class="text-xl">🔊</span> Nghe phát âm từ
+            <button type="button" onclick="speakDictationWord(null)" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-indigo-600 hover:bg-indigo-500 border border-indigo-400/50 text-white font-extrabold text-sm sm:text-base shadow-lg shadow-indigo-500/25 active:scale-95 transition">
+              Nghe phát âm từ
             </button>
-            <button type="button" onclick="speakDictationWord(0.55)" class="inline-flex items-center gap-1.5 px-4 py-3.5 rounded-2xl bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 font-bold text-xs sm:text-sm transition">
-              <span>🐢</span> Nghe chậm 0.55x
+            <button type="button" onclick="speakDictationWord(0.55)" class="inline-flex items-center gap-1.5 px-4 py-3.5 rounded-2xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-500/50 font-bold text-xs sm:text-sm shadow-sm active:scale-95 transition">
+              Nghe chậm 0.55x
             </button>
-            <button type="button" onclick="speakDictationExample()" class="inline-flex items-center gap-1.5 px-4 py-3.5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs sm:text-sm transition">
-              <span>🗣️</span> Nghe câu ví dụ
+            <button type="button" onclick="speakDictationExample()" class="inline-flex items-center gap-1.5 px-4 py-3.5 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-600 font-bold text-xs sm:text-sm shadow-sm active:scale-95 transition">
+              Nghe câu ví dụ
             </button>
           </div>
 
           <!-- Vietnamese Meaning & Cloze Context -->
-          <div class="max-w-xl mx-auto bg-indigo-50/60 border border-indigo-100 rounded-2xl p-4 space-y-1.5">
-            <div class="text-xs text-slate-500 font-medium">Nghĩa tiếng Việt cần tìm:</div>
-            <div id="dict-meaning-text" class="text-xl sm:text-2xl font-extrabold text-slate-900">khả năng, năng lực</div>
-            <p id="dict-cloze-sentence" class="text-xs sm:text-sm text-slate-600 italic pt-1">"She has the _______ to solve complex problems quickly."</p>
+          <div class="max-w-xl mx-auto bg-slate-950/70 border border-slate-800 rounded-2xl p-4 space-y-1.5">
+            <div class="text-xs text-slate-400 font-medium">Nghĩa tiếng Việt cần tìm:</div>
+            <div id="dict-meaning-text" class="text-xl sm:text-2xl font-extrabold text-white">khả năng, năng lực</div>
+            <p id="dict-cloze-sentence" class="text-xs sm:text-sm text-slate-300 italic pt-1">"She has the _______ to solve complex problems quickly."</p>
           </div>
 
           <!-- Letter Hint Slots -->
-          <div id="dict-letter-slots" class="flex items-center justify-center gap-1.5 flex-wrap font-mono-ipa text-lg font-bold text-indigo-700 pt-1"></div>
+          <div id="dict-letter-slots" class="flex items-center justify-center gap-1.5 flex-wrap font-mono-ipa text-lg font-bold text-indigo-300 pt-1"></div>
         </div>
 
         <!-- Submode 1: Typing Input -->
         <div id="dict-type-area" class="space-y-3 max-w-xl mx-auto">
           <div class="flex gap-2">
-            <input type="text" id="dict-input" onkeydown="if(event.key==='Enter') checkDictationAnswer()" placeholder="Gõ từ tiếng Anh bạn nghe được..." autocomplete="off" spellcheck="false" class="flex-1 px-4 py-3 rounded-2xl border-2 border-slate-200 focus:border-indigo-600 focus:outline-none text-base sm:text-lg font-bold text-center tracking-wide" />
-            <button type="button" onclick="checkDictationAnswer()" class="px-6 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm transition shrink-0">
+            <input type="text" id="dict-input" onkeydown="if(event.key==='Enter') checkDictationAnswer()" placeholder="Gõ từ tiếng Anh bạn nghe được..." autocomplete="off" spellcheck="false" class="flex-1 px-4 py-3 rounded-2xl bg-slate-950 text-white placeholder-slate-500 border-2 border-slate-700 focus:border-indigo-500 focus:outline-none text-base sm:text-lg font-bold text-center tracking-wide" />
+            <button type="button" onclick="checkDictationAnswer()" class="px-6 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-500 border border-indigo-400/50 text-white font-bold text-sm shadow-md shadow-indigo-500/25 active:scale-95 transition shrink-0">
               Kiểm tra
             </button>
           </div>
@@ -553,22 +545,22 @@
 
         <!-- Submode 2: Word Scramble Tiles -->
         <div id="dict-scramble-area" class="hidden space-y-4 max-w-xl mx-auto">
-          <div class="text-center text-xs text-slate-500">Bấm vào các chữ cái bên dưới để ghép thành từ đúng (bấm vào chữ đã chọn để bỏ ra):</div>
-          <div id="dict-scramble-chosen" class="min-h-[56px] p-3 rounded-2xl bg-slate-50 border-2 border-dashed border-indigo-300 flex items-center justify-center gap-2 flex-wrap"></div>
+          <div class="text-center text-xs text-slate-400">Bấm vào các chữ cái bên dưới để ghép thành từ đúng (bấm vào chữ đã chọn để bỏ ra):</div>
+          <div id="dict-scramble-chosen" class="min-h-[56px] p-3 rounded-2xl bg-slate-950 border-2 border-dashed border-indigo-500/50 flex items-center justify-center gap-2 flex-wrap"></div>
           <div id="dict-scramble-pool" class="flex items-center justify-center gap-2 flex-wrap"></div>
         </div>
 
         <!-- Helper Actions -->
-        <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-100">
+        <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-800">
           <div class="flex items-center gap-2">
-            <button type="button" onclick="giveDictationHint()" class="px-3.5 py-2 rounded-xl bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 text-xs font-bold transition">
-              💡 Gợi ý 1 chữ cái
+            <button type="button" onclick="giveDictationHint()" class="px-4 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-200 border border-amber-500/50 text-xs font-bold shadow-sm active:scale-95 transition">
+              Gợi ý 1 chữ cái
             </button>
-            <button type="button" onclick="revealDictationAnswer()" class="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition">
-              👁️ Xem đáp án
+            <button type="button" onclick="revealDictationAnswer()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-600 text-xs font-semibold shadow-sm active:scale-95 transition">
+              Xem đáp án
             </button>
           </div>
-          <button type="button" onclick="nextDictationWord()" class="px-5 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold transition">
+          <button type="button" onclick="nextDictationWord()" class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 border border-indigo-400/50 text-white text-xs sm:text-sm font-bold shadow-md shadow-indigo-500/20 active:scale-95 transition">
             Từ tiếp theo →
           </button>
         </div>
@@ -582,50 +574,50 @@
     <!-- TAB 3: SMART QUIZ & CONTEXTUAL CLOZE TEST                             -->
     <!-- ===================================================================== -->
     <section id="panel-quiz" class="hidden space-y-5">
-      <div class="max-w-3xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-sm p-5 sm:p-8 space-y-6">
-        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+      <div class="max-w-3xl mx-auto bg-slate-900 rounded-3xl border border-slate-800 shadow-xl p-5 sm:p-8 space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-4">
           <div>
-            <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">🧠 Trắc Nghiệm Thông Minh &amp; Điền Từ Ngữ Cảnh</h2>
-            <p class="text-xs text-slate-500">Kiểm tra phản xạ 2 chiều Anh-Việt, Việt-Anh và điền từ vào câu thực tế</p>
+            <h2 class="text-lg sm:text-xl font-extrabold text-slate-100">Trắc Nghiệm Thông Minh &amp; Điền Từ Ngữ Cảnh</h2>
+            <p class="text-xs text-slate-400">Kiểm tra phản xạ 2 chiều Anh-Việt, Việt-Anh và điền từ vào câu thực tế</p>
           </div>
           <div class="flex items-center gap-2">
-            <select id="quiz-type-select" onchange="generateQuizQuestion()" aria-label="Chế độ câu hỏi trắc nghiệm" class="bg-slate-100 text-slate-800 text-xs font-bold px-3 py-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-              <option value="mixed">🔀 Hỗn hợp thông minh (Mixed)</option>
-              <option value="en2vi">🇬🇧 Từ Anh ➔ Chọn Nghĩa Việt</option>
-              <option value="vi2en">🇻🇳 Nghĩa Việt ➔ Chọn Từ Anh</option>
-              <option value="cloze">📝 Điền từ vào câu ví dụ (Cloze)</option>
+            <select id="quiz-type-select" onchange="generateQuizQuestion()" aria-label="Chế độ câu hỏi trắc nghiệm" class="bg-slate-800 text-slate-100 text-xs font-bold px-3.5 py-2 rounded-xl border border-slate-600 hover:border-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              <option value="mixed">Hỗn hợp thông minh (Mixed)</option>
+              <option value="en2vi">Từ Anh - Chọn Nghĩa Việt</option>
+              <option value="vi2en">Nghĩa Việt - Chọn Từ Anh</option>
+              <option value="cloze">Điền từ vào câu ví dụ (Cloze)</option>
             </select>
           </div>
         </div>
 
         <!-- Quiz Scoreboard -->
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center">
-          <div class="bg-indigo-50/70 border border-indigo-100 rounded-2xl p-2.5">
-            <div class="text-[11px] text-slate-500 font-medium">Điểm số</div>
-            <div id="quiz-score" class="text-lg font-extrabold text-indigo-700">0</div>
+          <div class="bg-indigo-500/10 border border-indigo-500/30 rounded-2xl p-2.5">
+            <div class="text-[11px] text-slate-400 font-medium">Điểm số</div>
+            <div id="quiz-score" class="text-lg font-extrabold text-indigo-300">0</div>
           </div>
-          <div class="bg-amber-50/70 border border-amber-100 rounded-2xl p-2.5">
-            <div class="text-[11px] text-slate-500 font-medium">Chuỗi Combo</div>
-            <div id="quiz-combo" class="text-lg font-extrabold text-amber-600">0 🔥</div>
+          <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-2.5">
+            <div class="text-[11px] text-slate-400 font-medium">Chuỗi Combo</div>
+            <div id="quiz-combo" class="text-lg font-extrabold text-amber-300">0</div>
           </div>
-          <div class="bg-emerald-50/70 border border-emerald-100 rounded-2xl p-2.5">
-            <div class="text-[11px] text-slate-500 font-medium">Độ chính xác</div>
-            <div id="quiz-accuracy" class="text-lg font-extrabold text-emerald-700">100%</div>
+          <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-2.5">
+            <div class="text-[11px] text-slate-400 font-medium">Độ chính xác</div>
+            <div id="quiz-accuracy" class="text-lg font-extrabold text-emerald-300">100%</div>
           </div>
-          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-2.5">
-            <div class="text-[11px] text-slate-500 font-medium">Số câu đã làm</div>
-            <div id="quiz-qnum" class="text-lg font-extrabold text-slate-800">0</div>
+          <div class="bg-slate-950/70 border border-slate-800 rounded-2xl p-2.5">
+            <div class="text-[11px] text-slate-400 font-medium">Số câu đã làm</div>
+            <div id="quiz-qnum" class="text-lg font-extrabold text-slate-100">0</div>
           </div>
         </div>
 
         <!-- Question Prompt Area -->
-        <div class="bg-gradient-to-br from-slate-900 to-indigo-950 text-white rounded-3xl p-6 text-center space-y-3 shadow-md">
+        <div class="bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-white rounded-3xl p-6 text-center space-y-3 border border-slate-800 shadow-md">
           <div id="quiz-badge-row" class="flex items-center justify-center gap-2 text-xs"></div>
-          <h3 id="quiz-prompt-title" class="text-2xl sm:text-3xl font-extrabold tracking-tight">abandon</h3>
+          <h3 id="quiz-prompt-title" class="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">abandon</h3>
           <p id="quiz-prompt-sub" class="text-xs sm:text-sm text-indigo-200">/əˈbændən/ • Chọn đáp án đúng nhất bên dưới</p>
           <div class="pt-1">
-            <button type="button" onclick="speakQuizTarget()" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white/15 hover:bg-white/25 text-white text-xs font-semibold transition">
-              🔊 Nghe phát âm
+            <button type="button" onclick="speakQuizTarget()" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 border border-indigo-400/50 text-white text-xs font-bold shadow-md shadow-indigo-500/20 active:scale-95 transition">
+              Nghe phát âm
             </button>
           </div>
         </div>
@@ -636,9 +628,9 @@
         <!-- Explanation & Next Question -->
         <div id="quiz-explain-box" class="hidden rounded-2xl p-4 border space-y-2"></div>
 
-        <div class="flex items-center justify-between pt-2 border-t border-slate-100">
-          <span class="text-xs text-slate-400">Mẹo: Có thể bấm phím số <kbd class="px-1.5 py-0.5 bg-slate-100 rounded text-slate-600">1</kbd> - <kbd class="px-1.5 py-0.5 bg-slate-100 rounded text-slate-600">4</kbd> để chọn nhanh</span>
-          <button type="button" onclick="generateQuizQuestion()" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs sm:text-sm font-bold transition">
+        <div class="flex items-center justify-between pt-2 border-t border-slate-800">
+          <span class="text-xs text-slate-400">Mẹo: Có thể bấm phím số <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-200">1</kbd> - <kbd class="px-1.5 py-0.5 bg-slate-800 border border-slate-700 rounded text-slate-200">4</kbd> để chọn nhanh</span>
+          <button type="button" onclick="generateQuizQuestion()" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 border border-indigo-400/50 text-white text-xs sm:text-sm font-bold shadow-md shadow-indigo-500/25 active:scale-95 transition">
             Câu hỏi tiếp theo →
           </button>
         </div>
@@ -649,40 +641,40 @@
     <!-- TAB 4: SPEED MATCH GAME                                               -->
     <!-- ===================================================================== -->
     <section id="panel-match" class="hidden space-y-5">
-      <div class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200 shadow-sm p-5 sm:p-8 space-y-5">
-        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+      <div class="max-w-4xl mx-auto bg-slate-900 rounded-3xl border border-slate-800 shadow-xl p-5 sm:p-8 space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-4">
           <div>
-            <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">🎮 Trò Chơi Ghép Thẻ Từ Vựng Siêu Tốc</h2>
-            <p class="text-xs text-slate-500">Chạm vào thẻ tiếng Anh để nghe phát âm và ghép với nghĩa tiếng Việt tương ứng</p>
+            <h2 class="text-lg sm:text-xl font-extrabold text-slate-100">Trò Chơi Ghép Thẻ Từ Vựng Siêu Tốc</h2>
+            <p class="text-xs text-slate-400">Chạm vào thẻ tiếng Anh để nghe phát âm và ghép với nghĩa tiếng Việt tương ứng</p>
           </div>
           <div class="flex items-center gap-2">
-            <select id="match-size-select" onchange="startMatchGame()" aria-label="Số cặp thẻ ghép" class="bg-slate-100 text-slate-800 text-xs font-bold px-3 py-2 rounded-xl border border-slate-200">
-              <option value="6">⚡ 6 Cặp (12 Thẻ)</option>
-              <option value="8">🔥 8 Cặp (16 Thẻ)</option>
+            <select id="match-size-select" onchange="startMatchGame()" aria-label="Số cặp thẻ ghép" class="bg-slate-800 text-slate-100 text-xs font-bold px-3.5 py-2 rounded-xl border border-slate-600 hover:border-slate-500">
+              <option value="6">6 Cặp (12 Thẻ)</option>
+              <option value="8">8 Cặp (16 Thẻ)</option>
             </select>
-            <button type="button" onclick="startMatchGame()" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition">
-              🔄 Ván mới
+            <button type="button" onclick="startMatchGame()" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 border border-indigo-400/50 text-white text-xs font-bold shadow-md shadow-indigo-500/25 active:scale-95 transition">
+              Ván mới
             </button>
           </div>
         </div>
 
         <!-- Match Game Stats -->
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center">
-          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-2.5">
-            <div class="text-[11px] text-slate-500">Thời gian</div>
-            <div id="match-timer" class="text-lg font-mono-ipa font-extrabold text-slate-900">00:00</div>
+          <div class="bg-slate-950/70 border border-slate-800 rounded-2xl p-2.5">
+            <div class="text-[11px] text-slate-400">Thời gian</div>
+            <div id="match-timer" class="text-lg font-mono-ipa font-extrabold text-slate-100">00:00</div>
           </div>
-          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-2.5">
-            <div class="text-[11px] text-slate-500">Số lượt chọn</div>
-            <div id="match-moves" class="text-lg font-extrabold text-indigo-600">0</div>
+          <div class="bg-slate-950/70 border border-slate-800 rounded-2xl p-2.5">
+            <div class="text-[11px] text-slate-400">Số lượt chọn</div>
+            <div id="match-moves" class="text-lg font-extrabold text-indigo-400">0</div>
           </div>
-          <div class="bg-amber-50 border border-amber-100 rounded-2xl p-2.5">
-            <div class="text-[11px] text-slate-500">Combo hiện tại</div>
-            <div id="match-combo" class="text-lg font-extrabold text-amber-600">0x</div>
+          <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-2.5">
+            <div class="text-[11px] text-slate-400">Combo hiện tại</div>
+            <div id="match-combo" class="text-lg font-extrabold text-amber-300">0x</div>
           </div>
-          <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-2.5">
-            <div class="text-[11px] text-slate-500">Kỷ lục nhanh nhất</div>
-            <div id="match-best" class="text-lg font-mono-ipa font-extrabold text-emerald-700">--:--</div>
+          <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-2.5">
+            <div class="text-[11px] text-slate-400">Kỷ lục nhanh nhất</div>
+            <div id="match-best" class="text-lg font-mono-ipa font-extrabold text-emerald-300">--:--</div>
           </div>
         </div>
 
@@ -690,11 +682,10 @@
         <div id="match-board" class="grid grid-cols-2 sm:grid-cols-4 gap-3"></div>
 
         <!-- Win Banner -->
-        <div id="match-win-banner" class="hidden text-center bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-3xl p-6 space-y-3 shadow-lg">
-          <div class="text-3xl">🏆</div>
-          <h3 class="text-xl font-extrabold">Xuất sắc! Bạn đã ghép đúng toàn bộ các cặp từ!</h3>
-          <p id="match-win-summary" class="text-sm text-emerald-50"></p>
-          <button type="button" onclick="startMatchGame()" class="px-6 py-2.5 rounded-xl bg-white text-emerald-700 font-extrabold text-sm shadow-sm hover:bg-emerald-50 transition">
+        <div id="match-win-banner" class="hidden text-center bg-gradient-to-r from-emerald-900 via-teal-900 to-slate-900 border border-emerald-500/40 text-white rounded-3xl p-6 space-y-3 shadow-xl">
+          <h3 class="text-xl font-extrabold text-emerald-200">Xuất sắc! Bạn đã ghép đúng toàn bộ các cặp từ!</h3>
+          <p id="match-win-summary" class="text-sm text-slate-200"></p>
+          <button type="button" onclick="startMatchGame()" class="px-6 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm shadow-md shadow-emerald-500/20 active:scale-95 transition">
             Chơi tiếp bộ từ mới →
           </button>
         </div>
@@ -705,21 +696,21 @@
     <!-- TAB 6: 3000 WORDS EXPLORER & PERSONAL NOTEBOOK                        -->
     <!-- ===================================================================== -->
     <section id="panel-explorer" class="hidden space-y-4">
-      <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-4 sm:p-6 space-y-4">
+      <div class="bg-slate-900 rounded-3xl border border-slate-800 shadow-xl p-4 sm:p-6 space-y-4">
         <div class="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">📚 Kho Từ Điển 3000 Từ Vựng Tiếng Anh Thông Dụng</h2>
-            <p class="text-xs text-slate-500">Tra cứu nhanh, nghe phát âm chuẩn, lọc theo chữ cái A–Z và quản lý sổ tay từ vựng</p>
+            <h2 class="text-lg sm:text-xl font-extrabold text-slate-100">Kho Từ Điển 3000 Từ Vựng Tiếng Anh Thông Dụng</h2>
+            <p class="text-xs text-slate-400">Tra cứu nhanh, nghe phát âm chuẩn, lọc theo chữ cái A–Z và quản lý sổ tay từ vựng</p>
           </div>
           <div class="flex items-center gap-2 flex-wrap">
-            <button type="button" onclick="openAddWordModal()" class="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold shadow-xs transition">
+            <button type="button" onclick="openAddWordModal()" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 border border-indigo-400/50 text-white text-xs font-bold shadow-md shadow-indigo-500/25 active:scale-95 transition">
               + Thêm từ mới
             </button>
-            <button type="button" onclick="exportProgressJSON()" class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition">
-              ⬇️ Xuất JSON/CSV
+            <button type="button" onclick="exportProgressJSON()" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-100 text-xs font-semibold shadow-sm active:scale-95 transition">
+              Xuất JSON/CSV
             </button>
-            <button type="button" onclick="openImportModal()" class="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition">
-              ⬆️ Nhập dữ liệu
+            <button type="button" onclick="openImportModal()" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-100 text-xs font-semibold shadow-sm active:scale-95 transition">
+              Nhập dữ liệu
             </button>
           </div>
         </div>
@@ -727,12 +718,12 @@
         <!-- Search & View Mode Bar -->
         <div class="flex flex-wrap items-center gap-2.5">
           <div class="relative flex-1 min-w-[220px]">
-            <input type="text" id="exp-search-input" oninput="handleExplorerSearch()" placeholder="🔍 Tìm kiếm từ tiếng Anh, nghĩa tiếng Việt, hoặc câu ví dụ..." class="w-full pl-4 pr-10 py-2.5 rounded-2xl border border-slate-200 bg-slate-50 focus:bg-white focus:border-indigo-500 focus:outline-none text-sm" />
-            <button type="button" onclick="clearExplorerSearch()" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs font-bold">✕</button>
+            <input type="text" id="exp-search-input" oninput="handleExplorerSearch()" placeholder="Tìm kiếm từ tiếng Anh, nghĩa tiếng Việt, hoặc câu ví dụ..." class="w-full pl-4 pr-10 py-2.5 rounded-2xl border border-slate-700 bg-slate-950 text-slate-100 placeholder-slate-500 focus:border-indigo-500 focus:outline-none text-sm" />
+            <button type="button" onclick="clearExplorerSearch()" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 text-xs font-bold">✕</button>
           </div>
-          <div class="inline-flex rounded-xl bg-slate-100 p-1 border border-slate-200">
-            <button type="button" id="exp-view-grid-btn" onclick="setExplorerView('grid')" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-indigo-600 shadow-2xs">🗂️ Thẻ lưới</button>
-            <button type="button" id="exp-view-table-btn" onclick="setExplorerView('table')" class="px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900">📋 Bảng gọn</button>
+          <div class="inline-flex rounded-xl bg-slate-950 p-1 border border-slate-800">
+            <button type="button" id="exp-view-grid-btn" onclick="setExplorerView('grid')" class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow-sm">Thẻ lưới</button>
+            <button type="button" id="exp-view-table-btn" onclick="setExplorerView('table')" class="px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-300 hover:text-white">Bảng gọn</button>
           </div>
         </div>
 
@@ -740,12 +731,12 @@
         <div id="exp-alpha-bar" class="flex items-center gap-1 overflow-x-auto py-1 no-scrollbar"></div>
 
         <!-- Pagination Top Info -->
-        <div class="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-600 bg-slate-50 px-3.5 py-2 rounded-xl border border-slate-200/70">
+        <div class="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-300 bg-slate-950/70 px-3.5 py-2 rounded-xl border border-slate-800">
           <div id="exp-result-info" class="font-semibold">Đang hiển thị 1–36 trên 3000 từ</div>
           <div class="flex items-center gap-2">
-            <button type="button" id="exp-prev-btn" onclick="changeExplorerPage(-1)" class="px-3 py-1 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 font-bold text-slate-700">← Trang trước</button>
-            <span id="exp-page-info" class="font-bold text-slate-800">Trang 1 / 84</span>
-            <button type="button" id="exp-next-btn" onclick="changeExplorerPage(1)" class="px-3 py-1 rounded-lg bg-white border border-slate-200 hover:bg-slate-100 font-bold text-slate-700">Trang sau →</button>
+            <button type="button" id="exp-prev-btn" onclick="changeExplorerPage(-1)" class="px-3.5 py-1.5 rounded-lg bg-slate-800 border border-slate-600 hover:bg-slate-700 font-bold text-slate-100 shadow-sm active:scale-95 transition">← Trang trước</button>
+            <span id="exp-page-info" class="font-bold text-slate-100">Trang 1 / 84</span>
+            <button type="button" id="exp-next-btn" onclick="changeExplorerPage(1)" class="px-3.5 py-1.5 rounded-lg bg-slate-800 border border-slate-600 hover:bg-slate-700 font-bold text-slate-100 shadow-sm active:scale-95 transition">Trang sau →</button>
           </div>
         </div>
 
@@ -758,95 +749,95 @@
     <!-- TAB 7: PROGRESS ANALYTICS & MEMORY DASHBOARD                          -->
     <!-- ===================================================================== -->
     <section id="panel-stats" class="hidden space-y-5">
-      <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-5 sm:p-8 space-y-6">
-        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+      <div class="bg-slate-900 rounded-3xl border border-slate-800 shadow-xl p-5 sm:p-8 space-y-6">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-4">
           <div>
-            <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">📊 Thống Kê Tiến Độ &amp; Phân Tích Trí Nhớ SRS</h2>
-            <p class="text-xs text-slate-500">Theo dõi lộ trình chinh phục 3000 từ vựng thông dụng theo cấp độ CEFR và chủ đề</p>
+            <h2 class="text-lg sm:text-xl font-extrabold text-slate-100">Thống Kê Tiến Độ &amp; Phân Tích Trí Nhớ SRS</h2>
+            <p class="text-xs text-slate-400">Theo dõi lộ trình chinh phục 3000 từ vựng thông dụng theo cấp độ CEFR và chủ đề</p>
           </div>
           <div class="flex items-center gap-2">
-            <label class="text-xs font-semibold text-slate-600">Mục tiêu ngày:</label>
-            <select id="dash-goal-select" onchange="updateDailyGoal(this.value)" aria-label="Mục tiêu từ vựng mỗi ngày" class="bg-slate-100 text-slate-800 text-xs font-bold px-3 py-2 rounded-xl border border-slate-200">
+            <label class="text-xs font-semibold text-slate-300">Mục tiêu ngày:</label>
+            <select id="dash-goal-select" onchange="updateDailyGoal(this.value)" aria-label="Mục tiêu từ vựng mỗi ngày" class="bg-slate-800 text-slate-100 text-xs font-bold px-3.5 py-2 rounded-xl border border-slate-600 hover:border-slate-500">
               <option value="10">10 từ / ngày</option>
               <option value="20" selected>20 từ / ngày</option>
               <option value="30">30 từ / ngày</option>
               <option value="50">50 từ / ngày</option>
               <option value="100">100 từ / ngày</option>
             </select>
-            <button type="button" onclick="confirmResetProgress()" class="px-3 py-2 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs font-semibold transition">
-              🗑️ Đặt lại tiến độ
+            <button type="button" onclick="confirmResetProgress()" class="px-3.5 py-2 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 text-rose-200 border border-rose-500/50 text-xs font-bold shadow-sm active:scale-95 transition">
+              Đặt lại tiến độ
             </button>
           </div>
         </div>
 
         <!-- Student Profile Card -->
-        <div id="dash-profile-card" class="bg-gradient-to-r from-indigo-900 via-indigo-950 to-slate-900 text-white rounded-3xl p-5 sm:p-6 shadow-md flex flex-wrap items-center justify-between gap-4">
+        <div id="dash-profile-card" class="bg-gradient-to-r from-slate-950 via-indigo-950/80 to-slate-950 border border-slate-800 text-white rounded-3xl p-5 sm:p-6 shadow-md flex flex-wrap items-center justify-between gap-4">
           <div class="flex items-center gap-3.5">
-            <div id="dash-profile-avatar" class="w-14 h-14 rounded-2xl bg-indigo-600 text-white flex items-center justify-center text-2xl font-bold shadow-md shadow-indigo-950/40">👨‍🎓</div>
+            <div id="dash-profile-avatar" class="w-14 h-14 rounded-2xl bg-indigo-600 border border-indigo-400/40 text-white flex items-center justify-center text-lg font-extrabold shadow-md shadow-indigo-950/40">HV</div>
             <div>
               <div class="flex items-center gap-2 flex-wrap">
                 <h3 id="dash-profile-name" class="text-base sm:text-lg font-extrabold text-white">Học viên</h3>
-                <span id="dash-profile-badge" class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-400 text-emerald-950">Đã đăng nhập</span>
+                <span id="dash-profile-badge" class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">Đã đăng nhập</span>
               </div>
-              <p id="dash-profile-desc" class="text-xs text-indigo-200 mt-0.5">Phiên đăng nhập và tiến độ học 3000 từ của bạn được tự động lưu trên trình duyệt.</p>
+              <p id="dash-profile-desc" class="text-xs text-slate-300 mt-0.5">Phiên đăng nhập và tiến độ học 3000 từ của bạn được tự động lưu trên trình duyệt.</p>
             </div>
           </div>
           <div class="flex items-center gap-2 flex-wrap">
-            <button type="button" onclick="openAuthModal('forgot')" class="px-4 py-2.5 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-white text-xs font-bold shadow-xs transition">
-              🔑 Đổi mật khẩu
+            <button type="button" onclick="openAuthModal('forgot')" class="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 border border-indigo-400/50 text-white text-xs font-bold shadow-md shadow-indigo-500/25 active:scale-95 transition">
+              Đổi mật khẩu
             </button>
-            <button type="button" onclick="confirmLogout()" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition">
-              🚪 Đăng xuất
+            <button type="button" onclick="confirmLogout()" class="px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-100 text-xs font-semibold shadow-sm active:scale-95 transition">
+              Đăng xuất
             </button>
           </div>
         </div>
 
         <!-- Summary KPI Cards -->
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-          <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
-            <div class="text-xs text-slate-500 font-medium">Tổng kho từ</div>
-            <div id="dash-total-words" class="text-2xl font-extrabold text-slate-900 mt-1">3000</div>
+          <div class="p-4 rounded-2xl bg-slate-950/70 border border-slate-800">
+            <div class="text-xs text-slate-400 font-medium">Tổng kho từ</div>
+            <div id="dash-total-words" class="text-2xl font-extrabold text-slate-100 mt-1">3000</div>
           </div>
-          <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200">
-            <div class="text-xs text-emerald-700 font-medium">✅ Đã thuộc lòng</div>
-            <div id="dash-mastered-count" class="text-2xl font-extrabold text-emerald-700 mt-1">0</div>
+          <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/30">
+            <div class="text-xs text-emerald-300 font-medium">Đã thuộc lòng</div>
+            <div id="dash-mastered-count" class="text-2xl font-extrabold text-emerald-300 mt-1">0</div>
           </div>
-          <div class="p-4 rounded-2xl bg-sky-50 border border-sky-200">
-            <div class="text-xs text-sky-700 font-medium">📖 Đang học</div>
-            <div id="dash-learning-count" class="text-2xl font-extrabold text-sky-700 mt-1">0</div>
+          <div class="p-4 rounded-2xl bg-sky-500/10 border border-sky-500/30">
+            <div class="text-xs text-sky-300 font-medium">Đang học</div>
+            <div id="dash-learning-count" class="text-2xl font-extrabold text-sky-300 mt-1">0</div>
           </div>
-          <div class="p-4 rounded-2xl bg-rose-50 border border-rose-200">
-            <div class="text-xs text-rose-700 font-medium">⏰ Đến hạn ôn SRS</div>
-            <div id="dash-due-count" class="text-2xl font-extrabold text-rose-700 mt-1">0</div>
+          <div class="p-4 rounded-2xl bg-rose-500/10 border border-rose-500/30">
+            <div class="text-xs text-rose-300 font-medium">Đến hạn ôn SRS</div>
+            <div id="dash-due-count" class="text-2xl font-extrabold text-rose-300 mt-1">0</div>
           </div>
-          <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200">
-            <div class="text-xs text-amber-800 font-medium">⭐ Đánh dấu Sao</div>
-            <div id="dash-starred-count" class="text-2xl font-extrabold text-amber-700 mt-1">0</div>
+          <div class="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30">
+            <div class="text-xs text-amber-300 font-medium">Đánh dấu Sao</div>
+            <div id="dash-starred-count" class="text-2xl font-extrabold text-amber-300 mt-1">0</div>
           </div>
-          <div class="p-4 rounded-2xl bg-purple-50 border border-purple-200">
-            <div class="text-xs text-purple-800 font-medium">⚠️ Từ hay nhầm</div>
-            <div id="dash-hard-count" class="text-2xl font-extrabold text-purple-700 mt-1">0</div>
+          <div class="p-4 rounded-2xl bg-purple-500/10 border border-purple-500/30">
+            <div class="text-xs text-purple-300 font-medium">Từ hay nhầm</div>
+            <div id="dash-hard-count" class="text-2xl font-extrabold text-purple-300 mt-1">0</div>
           </div>
         </div>
 
         <!-- Breakdown by CEFR & Topics -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200/80 space-y-3">
-            <h3 class="text-sm font-extrabold text-slate-800">🎓 Tiến độ theo Cấp độ CEFR (A1 ➔ B2)</h3>
+          <div class="bg-slate-950/70 rounded-2xl p-5 border border-slate-800 space-y-3">
+            <h3 class="text-sm font-extrabold text-slate-100">Tiến độ theo Cấp độ CEFR (A1 - B2)</h3>
             <div id="dash-level-bars" class="space-y-3"></div>
           </div>
 
-          <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200/80 space-y-3">
-            <h3 class="text-sm font-extrabold text-slate-800">🏷️ Tiến độ theo 12 Chủ đề thực tế</h3>
+          <div class="bg-slate-950/70 rounded-2xl p-5 border border-slate-800 space-y-3">
+            <h3 class="text-sm font-extrabold text-slate-100">Tiến độ theo 12 Chủ đề thực tế</h3>
             <div id="dash-topic-bars" class="space-y-2.5 max-h-72 overflow-y-auto pr-1"></div>
           </div>
         </div>
 
         <!-- Hard Words / Mistake Notebook -->
-        <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200/80 space-y-3">
+        <div class="bg-slate-950/70 rounded-2xl p-5 border border-slate-800 space-y-3">
           <div class="flex items-center justify-between">
-            <h3 class="text-sm font-extrabold text-slate-800">⚠️ Danh sách Từ Hay Sai / Cần Ôn Tập Kỹ</h3>
-            <button type="button" onclick="studyHardWordsNow()" class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition">
+            <h3 class="text-sm font-extrabold text-slate-100">Danh sách Từ Hay Sai / Cần Ôn Tập Kỹ</h3>
+            <button type="button" onclick="studyHardWordsNow()" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 border border-indigo-400/50 text-white text-xs font-bold shadow-md shadow-indigo-500/20 active:scale-95 transition">
               Ôn tập các từ này ngay →
             </button>
           </div>
@@ -862,24 +853,24 @@
   <!-- ======================================================================= -->
 
   <!-- Modal 1: Add Custom Word -->
-  <div id="modal-add-word" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-xl border border-slate-200 space-y-4">
-      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-        <h3 class="text-base font-extrabold text-slate-900">➕ Thêm Từ Vựng Mới Vào Kho Học Tập</h3>
-        <button type="button" onclick="closeAddWordModal()" class="text-slate-400 hover:text-slate-600 font-bold">✕</button>
+  <div id="modal-add-word" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-slate-900 rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-700 space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="text-base font-extrabold text-slate-100">Thêm Từ Vựng Mới Vào Kho Học Tập</h3>
+        <button type="button" onclick="closeAddWordModal()" class="text-slate-400 hover:text-slate-200 font-bold">✕</button>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
         <div>
-          <label class="font-bold text-slate-700 block mb-1">Từ tiếng Anh *</label>
-          <input type="text" id="add-word-en" placeholder="VD: resilient" class="w-full px-3 py-2 rounded-xl border border-slate-200" />
+          <label class="font-bold text-slate-300 block mb-1">Từ tiếng Anh *</label>
+          <input type="text" id="add-word-en" placeholder="VD: resilient" class="w-full px-3 py-2 rounded-xl border border-slate-700 bg-slate-950 text-slate-100 placeholder-slate-500 focus:border-indigo-500 focus:outline-none" />
         </div>
         <div>
-          <label class="font-bold text-slate-700 block mb-1">Phiên âm IPA</label>
-          <input type="text" id="add-word-ipa" placeholder="VD: /rɪˈzɪliənt/" class="w-full px-3 py-2 rounded-xl border border-slate-200 font-mono-ipa" />
+          <label class="font-bold text-slate-300 block mb-1">Phiên âm IPA</label>
+          <input type="text" id="add-word-ipa" placeholder="VD: /rɪˈzɪliənt/" class="w-full px-3 py-2 rounded-xl border border-slate-700 bg-slate-950 text-slate-100 placeholder-slate-500 font-mono-ipa focus:border-indigo-500 focus:outline-none" />
         </div>
         <div>
-          <label class="font-bold text-slate-700 block mb-1">Từ loại</label>
-          <select id="add-word-pos" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white">
+          <label class="font-bold text-slate-300 block mb-1">Từ loại</label>
+          <select id="add-word-pos" class="w-full px-3 py-2 rounded-xl border border-slate-700 bg-slate-950 text-slate-100 focus:border-indigo-500 focus:outline-none">
             <option value="n">n (Danh từ)</option>
             <option value="v">v (Động từ)</option>
             <option value="adj">adj (Tính từ)</option>
@@ -888,8 +879,8 @@
           </select>
         </div>
         <div>
-          <label class="font-bold text-slate-700 block mb-1">Cấp độ CEFR</label>
-          <select id="add-word-level" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white">
+          <label class="font-bold text-slate-300 block mb-1">Cấp độ CEFR</label>
+          <select id="add-word-level" class="w-full px-3 py-2 rounded-xl border border-slate-700 bg-slate-950 text-slate-100 focus:border-indigo-500 focus:outline-none">
             <option value="A1">A1</option>
             <option value="A2">A2</option>
             <option value="B1">B1</option>
@@ -897,125 +888,125 @@
           </select>
         </div>
         <div class="sm:col-span-2">
-          <label class="font-bold text-slate-700 block mb-1">Chủ đề</label>
-          <select id="add-word-topic" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white"></select>
+          <label class="font-bold text-slate-300 block mb-1">Chủ đề</label>
+          <select id="add-word-topic" class="w-full px-3 py-2 rounded-xl border border-slate-700 bg-slate-950 text-slate-100 focus:border-indigo-500 focus:outline-none"></select>
         </div>
         <div class="sm:col-span-2">
-          <label class="font-bold text-slate-700 block mb-1">Nghĩa tiếng Việt *</label>
-          <input type="text" id="add-word-vi" placeholder="VD: kiên cường, có sức bật tốt" class="w-full px-3 py-2 rounded-xl border border-slate-200" />
+          <label class="font-bold text-slate-300 block mb-1">Nghĩa tiếng Việt *</label>
+          <input type="text" id="add-word-vi" placeholder="VD: kiên cường, có sức bật tốt" class="w-full px-3 py-2 rounded-xl border border-slate-700 bg-slate-950 text-slate-100 placeholder-slate-500 focus:border-indigo-500 focus:outline-none" />
         </div>
         <div class="sm:col-span-2">
-          <label class="font-bold text-slate-700 block mb-1">Câu ví dụ tiếng Anh</label>
-          <input type="text" id="add-word-ex-en" placeholder="VD: She remained resilient despite the difficulties." class="w-full px-3 py-2 rounded-xl border border-slate-200" />
+          <label class="font-bold text-slate-300 block mb-1">Câu ví dụ tiếng Anh</label>
+          <input type="text" id="add-word-ex-en" placeholder="VD: She remained resilient despite the difficulties." class="w-full px-3 py-2 rounded-xl border border-slate-700 bg-slate-950 text-slate-100 placeholder-slate-500 focus:border-indigo-500 focus:outline-none" />
         </div>
         <div class="sm:col-span-2">
-          <label class="font-bold text-slate-700 block mb-1">Dịch câu ví dụ tiếng Việt</label>
-          <input type="text" id="add-word-ex-vi" placeholder="VD: Cô ấy vẫn kiên cường bất chấp những khó khăn." class="w-full px-3 py-2 rounded-xl border border-slate-200" />
+          <label class="font-bold text-slate-300 block mb-1">Dịch câu ví dụ tiếng Việt</label>
+          <input type="text" id="add-word-ex-vi" placeholder="VD: Cô ấy vẫn kiên cường bất chấp những khó khăn." class="w-full px-3 py-2 rounded-xl border border-slate-700 bg-slate-950 text-slate-100 placeholder-slate-500 focus:border-indigo-500 focus:outline-none" />
         </div>
       </div>
-      <div class="flex justify-end gap-2 pt-2 border-t border-slate-100">
-        <button type="button" onclick="closeAddWordModal()" class="px-4 py-2 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold">Hủy</button>
-        <button type="button" onclick="saveCustomWord()" class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold">Lưu từ mới</button>
+      <div class="flex justify-end gap-2 pt-2 border-t border-slate-800">
+        <button type="button" onclick="closeAddWordModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 text-xs font-bold transition">Hủy</button>
+        <button type="button" onclick="saveCustomWord()" class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 border border-indigo-400/50 text-white text-xs font-bold shadow-md shadow-indigo-500/20 transition">Lưu từ mới</button>
       </div>
     </div>
   </div>
 
   <!-- Modal 2: Word Detail & Personal Memory Note -->
-  <div id="modal-word-detail" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-xl border border-slate-200 space-y-4">
-      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-        <h3 class="text-base font-extrabold text-slate-900">📖 Chi Tiết Từ Vựng &amp; Ghi Chú Cá Nhân</h3>
-        <button type="button" onclick="closeWordDetailModal()" class="text-slate-400 hover:text-slate-600 font-bold">✕</button>
+  <div id="modal-word-detail" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-slate-900 rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-700 space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="text-base font-extrabold text-slate-100">Chi Tiết Từ Vựng &amp; Ghi Chú Cá Nhân</h3>
+        <button type="button" onclick="closeWordDetailModal()" class="text-slate-400 hover:text-slate-200 font-bold">✕</button>
       </div>
-      <div id="detail-modal-body" class="space-y-3 text-sm"></div>
+      <div id="detail-modal-body" class="space-y-3 text-sm text-slate-200"></div>
       <div class="space-y-1.5">
-        <label class="text-xs font-bold text-slate-700 block">📝 Mẹo nhớ / Ghi chú cá nhân của bạn cho từ này:</label>
-        <textarea id="detail-note-input" rows="3" placeholder="Ghi câu đặt riêng hoặc mẹo liên tưởng âm thanh để nhớ từ này lâu hơn..." class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs focus:border-indigo-500 focus:outline-none"></textarea>
+        <label class="text-xs font-bold text-slate-300 block">Mẹo nhớ / Ghi chú cá nhân của bạn cho từ này:</label>
+        <textarea id="detail-note-input" rows="3" placeholder="Ghi câu đặt riêng hoặc mẹo liên tưởng âm thanh để nhớ từ này lâu hơn..." class="w-full px-3 py-2 rounded-xl border border-slate-700 bg-slate-950 text-slate-100 placeholder-slate-500 text-xs focus:border-indigo-500 focus:outline-none"></textarea>
       </div>
-      <div class="flex justify-end gap-2 pt-2 border-t border-slate-100">
-        <button type="button" onclick="closeWordDetailModal()" class="px-4 py-2 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold">Đóng</button>
-        <button type="button" onclick="saveWordPersonalNote()" class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold">Lưu ghi chú</button>
+      <div class="flex justify-end gap-2 pt-2 border-t border-slate-800">
+        <button type="button" onclick="closeWordDetailModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 text-xs font-bold transition">Đóng</button>
+        <button type="button" onclick="saveWordPersonalNote()" class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 border border-indigo-400/50 text-white text-xs font-bold shadow-md shadow-indigo-500/20 transition">Lưu ghi chú</button>
       </div>
     </div>
   </div>
 
   <!-- Modal 3: Import / Backup JSON -->
-  <div id="modal-import" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-xl border border-slate-200 space-y-4">
-      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-        <h3 class="text-base font-extrabold text-slate-900">⬆️ Khôi Phục Tiến Độ Hoặc Nhập Danh Sách Từ</h3>
-        <button type="button" onclick="closeImportModal()" class="text-slate-400 hover:text-slate-600 font-bold">✕</button>
+  <div id="modal-import" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-slate-900 rounded-3xl max-w-lg w-full p-6 shadow-2xl border border-slate-700 space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="text-base font-extrabold text-slate-100">Khôi Phục Tiến Độ Hoặc Nhập Danh Sách Từ</h3>
+        <button type="button" onclick="closeImportModal()" class="text-slate-400 hover:text-slate-200 font-bold">✕</button>
       </div>
-      <p class="text-xs text-slate-500">Dán chuỗi JSON sao lưu tiến độ hoặc danh sách từ định dạng <code class="bg-slate-100 px-1 rounded">từ_anh|từ_loại|cấp_độ|nghĩa_việt</code> (mỗi từ 1 dòng):</p>
-      <textarea id="import-json-textarea" rows="6" placeholder="Dán dữ liệu JSON hoặc danh sách từ vào đây..." class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs font-mono-ipa focus:border-indigo-500 focus:outline-none"></textarea>
-      <div class="flex justify-end gap-2 pt-2 border-t border-slate-100">
-        <button type="button" onclick="closeImportModal()" class="px-4 py-2 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold">Hủy</button>
-        <button type="button" onclick="processImportData()" class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold">Nhập dữ liệu</button>
+      <p class="text-xs text-slate-400">Dán chuỗi JSON sao lưu tiến độ hoặc danh sách từ định dạng <code class="bg-slate-800 text-slate-200 px-1.5 py-0.5 rounded border border-slate-700">từ_anh|từ_loại|cấp_độ|nghĩa_việt</code> (mỗi từ 1 dòng):</p>
+      <textarea id="import-json-textarea" rows="6" placeholder="Dán dữ liệu JSON hoặc danh sách từ vào đây..." class="w-full px-3 py-2 rounded-xl border border-slate-700 bg-slate-950 text-slate-100 placeholder-slate-500 text-xs font-mono-ipa focus:border-indigo-500 focus:outline-none"></textarea>
+      <div class="flex justify-end gap-2 pt-2 border-t border-slate-800">
+        <button type="button" onclick="closeImportModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 text-xs font-bold transition">Hủy</button>
+        <button type="button" onclick="processImportData()" class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 border border-indigo-400/50 text-white text-xs font-bold shadow-md shadow-indigo-500/20 transition">Nhập dữ liệu</button>
       </div>
     </div>
   </div>
 
   <!-- Modal 4: Confirmation Dialog -->
-  <div id="modal-confirm" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-xl border border-slate-200 space-y-4">
-      <h3 id="confirm-modal-title" class="text-base font-extrabold text-slate-900">Xác nhận</h3>
-      <p id="confirm-modal-msg" class="text-xs sm:text-sm text-slate-600"></p>
+  <div id="modal-confirm" class="hidden fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xs flex items-center justify-center p-4">
+    <div class="bg-slate-900 rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-700 space-y-4">
+      <h3 id="confirm-modal-title" class="text-base font-extrabold text-slate-100">Xác nhận</h3>
+      <p id="confirm-modal-msg" class="text-xs sm:text-sm text-slate-300"></p>
       <div class="flex justify-end gap-2 pt-2">
-        <button type="button" onclick="closeConfirmModal()" class="px-4 py-2 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold">Hủy bỏ</button>
-        <button type="button" id="confirm-modal-yes-btn" onclick="executeConfirmedAction()" class="px-5 py-2 rounded-xl bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold">Đồng ý</button>
+        <button type="button" onclick="closeConfirmModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 text-xs font-bold transition">Hủy bỏ</button>
+        <button type="button" id="confirm-modal-yes-btn" onclick="executeConfirmedAction()" class="px-5 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 border border-rose-400/50 text-white text-xs font-bold shadow-md shadow-rose-500/20 transition">Đồng ý</button>
       </div>
     </div>
   </div>
 
   <!-- Modal 5: Mandatory Authentication Gate & Password Recovery -->
-  <div id="modal-auth" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-7 shadow-2xl border border-slate-200 space-y-5 max-h-[92vh] overflow-y-auto">
+  <div id="modal-auth" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-slate-900 rounded-3xl max-w-md w-full p-6 sm:p-7 shadow-2xl border border-slate-700 space-y-5 max-h-[92vh] overflow-y-auto">
       <!-- Header -->
-      <div class="flex items-center justify-between border-b border-slate-100 pb-3.5">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3.5">
         <div class="flex items-center gap-2.5">
-          <div class="w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center text-lg shadow-xs shrink-0">🔐</div>
+          <div class="w-9 h-9 rounded-xl bg-indigo-600 border border-indigo-400/40 text-white flex items-center justify-center text-xs font-extrabold shadow-sm shrink-0">TK</div>
           <div>
-            <h3 id="auth-modal-title" class="text-base font-extrabold text-slate-900">Đăng Nhập TKien 3000</h3>
-            <p id="auth-modal-subtitle" class="text-[11px] text-slate-500">Bắt buộc đăng nhập lần đầu — Tự động lưu cho các lần vào sau</p>
+            <h3 id="auth-modal-title" class="text-base font-extrabold text-slate-100">Đăng Nhập TKien 3000</h3>
+            <p id="auth-modal-subtitle" class="text-[11px] text-slate-400">Bắt buộc đăng nhập lần đầu — Tự động lưu cho các lần vào sau</p>
           </div>
         </div>
-        <button type="button" id="auth-modal-close-btn" onclick="closeAuthModal()" class="hidden text-slate-400 hover:text-slate-600 font-bold p-1.5 rounded-lg hover:bg-slate-100" title="Đóng">✕</button>
+        <button type="button" id="auth-modal-close-btn" onclick="closeAuthModal()" class="hidden text-slate-400 hover:text-slate-200 font-bold p-1.5 rounded-lg hover:bg-slate-800" title="Đóng">✕</button>
       </div>
 
       <!-- Navigation Tabs inside Modal (Only Sign In, Register, Forgot Password) -->
-      <div class="flex rounded-xl bg-slate-100 p-1 text-xs font-bold text-slate-600">
-        <button type="button" id="auth-tab-signin" onclick="switchAuthTab('signin')" class="flex-1 py-2 rounded-lg bg-white text-indigo-700 shadow-2xs transition">Đăng nhập</button>
-        <button type="button" id="auth-tab-register" onclick="switchAuthTab('register')" class="flex-1 py-2 rounded-lg hover:text-slate-900 transition">Đăng ký mới</button>
-        <button type="button" id="auth-tab-forgot" onclick="switchAuthTab('forgot')" class="flex-1 py-2 rounded-lg hover:text-slate-900 transition">Quên mật khẩu?</button>
+      <div class="flex rounded-xl bg-slate-950 p-1 text-xs font-bold text-slate-400 border border-slate-800">
+        <button type="button" id="auth-tab-signin" onclick="switchAuthTab('signin')" class="flex-1 py-2 rounded-lg bg-indigo-600 text-white shadow-sm transition">Đăng nhập</button>
+        <button type="button" id="auth-tab-register" onclick="switchAuthTab('register')" class="flex-1 py-2 rounded-lg hover:text-slate-100 transition">Đăng ký mới</button>
+        <button type="button" id="auth-tab-forgot" onclick="switchAuthTab('forgot')" class="flex-1 py-2 rounded-lg hover:text-slate-100 transition">Quên mật khẩu?</button>
       </div>
 
       <!-- SUBPANEL 1: SIGN IN -->
       <div id="auth-panel-signin" class="space-y-3.5 text-xs">
-        <div class="p-3 rounded-2xl bg-indigo-50/70 border border-indigo-100 text-indigo-950 text-[11px] leading-relaxed">
-          💡 <strong>Tài khoản mẫu có sẵn:</strong> Nhập <code class="font-mono-ipa font-bold bg-white px-1.5 py-0.5 rounded border border-indigo-200">minhnam</code> hoặc <code class="font-mono-ipa font-bold bg-white px-1.5 py-0.5 rounded border border-indigo-200">nam.learner@gmail.com</code> • Mật khẩu: <code class="font-mono-ipa font-bold bg-white px-1.5 py-0.5 rounded border border-indigo-200">123456</code> (hoặc chuyển sang tab <strong>Đăng ký mới</strong>).
+        <div class="p-3 rounded-2xl bg-indigo-950/60 border border-indigo-500/30 text-indigo-200 text-[11px] leading-relaxed">
+          <strong class="text-indigo-100">Tài khoản mẫu có sẵn:</strong> Nhập <code class="font-mono-ipa font-bold bg-slate-900 text-indigo-300 px-1.5 py-0.5 rounded border border-indigo-500/40">minhnam</code> hoặc <code class="font-mono-ipa font-bold bg-slate-900 text-indigo-300 px-1.5 py-0.5 rounded border border-indigo-500/40">nam.learner@gmail.com</code> • Mật khẩu: <code class="font-mono-ipa font-bold bg-slate-900 text-indigo-300 px-1.5 py-0.5 rounded border border-indigo-500/40">123456</code> (hoặc chuyển sang tab <strong class="text-white">Đăng ký mới</strong>).
         </div>
 
         <div>
-          <label class="font-bold text-slate-700 block mb-1">Tên đăng nhập hoặc Email *</label>
-          <input type="text" id="signin-identifier" onkeydown="if(event.key==='Enter') submitSignIn()" placeholder="VD: minhnam hoặc nam.learner@gmail.com" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-600 focus:outline-none text-sm" />
+          <label class="font-bold text-slate-300 block mb-1">Tên đăng nhập hoặc Email *</label>
+          <input type="text" id="signin-identifier" onkeydown="if(event.key==='Enter') submitSignIn()" placeholder="VD: minhnam hoặc nam.learner@gmail.com" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-700 bg-slate-950 text-slate-100 placeholder-slate-500 focus:border-indigo-500 focus:outline-none text-sm" />
         </div>
 
         <div>
           <div class="flex items-center justify-between mb-1">
-            <label class="font-bold text-slate-700">Mật khẩu *</label>
-            <button type="button" onclick="switchAuthTab('forgot')" class="text-[11px] font-bold text-indigo-600 hover:underline">Quên mật khẩu?</button>
+            <label class="font-bold text-slate-300">Mật khẩu *</label>
+            <button type="button" onclick="switchAuthTab('forgot')" class="text-[11px] font-bold text-indigo-400 hover:underline">Quên mật khẩu?</button>
           </div>
-          <input type="password" id="signin-password" onkeydown="if(event.key==='Enter') submitSignIn()" placeholder="Nhập mật khẩu của bạn..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-600 focus:outline-none font-mono-ipa text-sm" />
+          <input type="password" id="signin-password" onkeydown="if(event.key==='Enter') submitSignIn()" placeholder="Nhập mật khẩu của bạn..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-700 bg-slate-950 text-slate-100 placeholder-slate-500 focus:border-indigo-500 focus:outline-none font-mono-ipa text-sm" />
         </div>
 
         <div class="flex items-center justify-between pt-0.5">
-          <label class="flex items-center gap-2 text-slate-700 font-medium cursor-pointer">
-            <input type="checkbox" id="signin-remember" checked class="rounded text-indigo-600" />
+          <label class="flex items-center gap-2 text-slate-300 font-medium cursor-pointer">
+            <input type="checkbox" id="signin-remember" checked class="rounded text-indigo-500 bg-slate-950 border-slate-700" />
             <span>Lưu đăng nhập (Lần sau vào thẳng web)</span>
           </label>
         </div>
 
-        <button type="button" onclick="submitSignIn()" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-sm shadow-md shadow-indigo-200 transition">
+        <button type="button" onclick="submitSignIn()" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 border border-indigo-400/50 text-white font-extrabold text-sm shadow-lg shadow-indigo-500/25 active:scale-[0.99] transition">
           Đăng nhập vào học ngay →
         </button>
       </div>
@@ -1023,21 +1014,21 @@
       <!-- SUBPANEL 2: REGISTER -->
       <div id="auth-panel-register" class="hidden space-y-3.5 text-xs">
         <div>
-          <label class="font-bold text-slate-700 block mb-1">Họ và tên học viên * <span class="font-normal text-slate-400">(Dùng để xác minh khi quên mật khẩu)</span></label>
-          <input type="text" id="reg-name" placeholder="VD: Hoàng Minh Nam" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-600 focus:outline-none text-sm" />
+          <label class="font-bold text-slate-300 block mb-1">Họ và tên học viên * <span class="font-normal text-slate-400">(Dùng để xác minh khi quên mật khẩu)</span></label>
+          <input type="text" id="reg-name" placeholder="VD: Hoàng Minh Nam" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-700 bg-slate-950 text-slate-100 placeholder-slate-500 focus:border-indigo-500 focus:outline-none text-sm" />
         </div>
         <div>
-          <label class="font-bold text-slate-700 block mb-1">Tên đăng nhập hoặc Email *</label>
-          <input type="text" id="reg-identifier" placeholder="VD: nam2026@gmail.com hoặc minhnam" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-600 focus:outline-none text-sm" />
+          <label class="font-bold text-slate-300 block mb-1">Tên đăng nhập hoặc Email *</label>
+          <input type="text" id="reg-identifier" placeholder="VD: nam2026@gmail.com hoặc minhnam" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-700 bg-slate-950 text-slate-100 placeholder-slate-500 focus:border-indigo-500 focus:outline-none text-sm" />
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
           <div>
-            <label class="font-bold text-slate-700 block mb-1">Mật khẩu * (≥ 4 ký tự)</label>
-            <input type="password" id="reg-password" placeholder="Nhập mật khẩu..." class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-600 focus:outline-none font-mono-ipa text-sm" />
+            <label class="font-bold text-slate-300 block mb-1">Mật khẩu * (≥ 4 ký tự)</label>
+            <input type="password" id="reg-password" placeholder="Nhập mật khẩu..." class="w-full px-3 py-2.5 rounded-xl border border-slate-700 bg-slate-950 text-slate-100 placeholder-slate-500 focus:border-indigo-500 focus:outline-none font-mono-ipa text-sm" />
           </div>
           <div>
-            <label class="font-bold text-slate-700 block mb-1">Cấp độ mục tiêu</label>
-            <select id="reg-level" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 bg-white text-sm">
+            <label class="font-bold text-slate-300 block mb-1">Cấp độ mục tiêu</label>
+            <select id="reg-level" class="w-full px-3 py-2.5 rounded-xl border border-slate-700 bg-slate-950 text-slate-100 text-sm focus:border-indigo-500 focus:outline-none">
               <option value="A1">A1 — Cơ bản</option>
               <option value="A2">A2 — Sơ cấp</option>
               <option value="B1" selected>B1 — Trung cấp</option>
@@ -1046,53 +1037,53 @@
           </div>
         </div>
         <div>
-          <label class="font-bold text-slate-700 block mb-1">Câu hỏi bảo mật / Mã khôi phục mật khẩu <span class="font-normal text-slate-400">(Tùy chọn, VD: tên thú cưng / năm sinh)</span></label>
-          <input type="text" id="reg-recovery-key" placeholder="VD: 2002 hoặc milu (giúp lấy lại mật khẩu nhanh)" class="w-full px-3.5 py-2 rounded-xl border border-slate-200 focus:border-indigo-600 focus:outline-none text-sm" />
+          <label class="font-bold text-slate-300 block mb-1">Câu hỏi bảo mật / Mã khôi phục mật khẩu <span class="font-normal text-slate-400">(Tùy chọn, VD: tên thú cưng / năm sinh)</span></label>
+          <input type="text" id="reg-recovery-key" placeholder="VD: 2002 hoặc milu (giúp lấy lại mật khẩu nhanh)" class="w-full px-3.5 py-2 rounded-xl border border-slate-700 bg-slate-950 text-slate-100 placeholder-slate-500 focus:border-indigo-500 focus:outline-none text-sm" />
         </div>
         <div>
-          <label class="font-bold text-slate-700 block mb-1">Chọn biểu tượng học viên (Avatar)</label>
+          <label class="font-bold text-slate-300 block mb-1">Chọn nhãn đại diện học viên (Avatar)</label>
           <div class="flex items-center gap-1.5 flex-wrap" id="reg-avatar-picker">
-            <button type="button" onclick="selectRegAvatar('👨‍🎓')" class="reg-avatar-btn w-9 h-9 rounded-xl border-2 border-indigo-600 bg-indigo-50 text-base flex items-center justify-center">👨‍🎓</button>
-            <button type="button" onclick="selectRegAvatar('👩‍🎓')" class="reg-avatar-btn w-9 h-9 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-base flex items-center justify-center">👩‍🎓</button>
-            <button type="button" onclick="selectRegAvatar('👨‍💻')" class="reg-avatar-btn w-9 h-9 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-base flex items-center justify-center">👨‍💻</button>
-            <button type="button" onclick="selectRegAvatar('🦁')" class="reg-avatar-btn w-9 h-9 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-base flex items-center justify-center">🦁</button>
-            <button type="button" onclick="selectRegAvatar('🚀')" class="reg-avatar-btn w-9 h-9 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-base flex items-center justify-center">🚀</button>
-            <button type="button" onclick="selectRegAvatar('⚡')" class="reg-avatar-btn w-9 h-9 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-base flex items-center justify-center">⚡</button>
-            <button type="button" onclick="selectRegAvatar('🌟')" class="reg-avatar-btn w-9 h-9 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-base flex items-center justify-center">🌟</button>
-            <button type="button" onclick="selectRegAvatar('🎯')" class="reg-avatar-btn w-9 h-9 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-base flex items-center justify-center">🎯</button>
+            <button type="button" onclick="selectRegAvatar('HV')" class="reg-avatar-btn w-9 h-9 rounded-xl border-2 border-indigo-500 bg-indigo-500/20 text-indigo-200 text-xs font-extrabold flex items-center justify-center">HV</button>
+            <button type="button" onclick="selectRegAvatar('SV')" class="reg-avatar-btn w-9 h-9 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold flex items-center justify-center">SV</button>
+            <button type="button" onclick="selectRegAvatar('IT')" class="reg-avatar-btn w-9 h-9 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold flex items-center justify-center">IT</button>
+            <button type="button" onclick="selectRegAvatar('A1')" class="reg-avatar-btn w-9 h-9 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold flex items-center justify-center">A1</button>
+            <button type="button" onclick="selectRegAvatar('A2')" class="reg-avatar-btn w-9 h-9 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold flex items-center justify-center">A2</button>
+            <button type="button" onclick="selectRegAvatar('B1')" class="reg-avatar-btn w-9 h-9 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold flex items-center justify-center">B1</button>
+            <button type="button" onclick="selectRegAvatar('B2')" class="reg-avatar-btn w-9 h-9 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold flex items-center justify-center">B2</button>
+            <button type="button" onclick="selectRegAvatar('C1')" class="reg-avatar-btn w-9 h-9 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold flex items-center justify-center">C1</button>
           </div>
         </div>
-        <button type="button" onclick="submitRegister()" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-sm shadow-md shadow-indigo-200 transition">
+        <button type="button" onclick="submitRegister()" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 border border-indigo-400/50 text-white font-extrabold text-sm shadow-lg shadow-indigo-500/25 active:scale-[0.99] transition">
           Tạo tài khoản &amp; Lưu đăng nhập →
         </button>
       </div>
 
       <!-- SUBPANEL 3: FORGOT PASSWORD / PASSWORD RESET -->
       <div id="auth-panel-forgot" class="hidden space-y-3.5 text-xs">
-        <div class="p-3.5 rounded-2xl bg-amber-50 border border-amber-200 text-amber-950 space-y-1 leading-relaxed">
-          <div class="font-extrabold text-amber-900">🔑 Khôi phục / Đặt lại mật khẩu tại chỗ</div>
-          <p class="text-[11px] text-amber-800">
-            Vì dữ liệu được lưu an toàn ngay trên trình duyệt của bạn, bạn có thể đặt lại mật khẩu mới ngay lập tức mà <strong>không bị mất bất kỳ tiến độ học tập nào</strong> bằng cách xác minh Tên đăng nhập/Email kèm Họ tên hoặc Mã khôi phục.
+        <div class="p-3.5 rounded-2xl bg-amber-950/50 border border-amber-500/40 text-amber-200 space-y-1 leading-relaxed">
+          <div class="font-extrabold text-amber-300">Khôi phục / Đặt lại mật khẩu tại chỗ</div>
+          <p class="text-[11px] text-amber-200/90">
+            Vì dữ liệu được lưu an toàn ngay trên trình duyệt của bạn, bạn có thể đặt lại mật khẩu mới ngay lập tức mà <strong class="text-white">không bị mất bất kỳ tiến độ học tập nào</strong> bằng cách xác minh Tên đăng nhập/Email kèm Họ tên hoặc Mã khôi phục.
           </p>
         </div>
 
         <div>
-          <label class="font-bold text-slate-700 block mb-1">1. Nhập Tên đăng nhập hoặc Email cần lấy lại mật khẩu *</label>
-          <input type="text" id="forgot-identifier" placeholder="VD: minhnam hoặc nam.learner@gmail.com" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-600 focus:outline-none text-sm" />
+          <label class="font-bold text-slate-300 block mb-1">1. Nhập Tên đăng nhập hoặc Email cần lấy lại mật khẩu *</label>
+          <input type="text" id="forgot-identifier" placeholder="VD: minhnam hoặc nam.learner@gmail.com" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-700 bg-slate-950 text-slate-100 placeholder-slate-500 focus:border-indigo-500 focus:outline-none text-sm" />
         </div>
 
         <div>
-          <label class="font-bold text-slate-700 block mb-1">2. Nhập Họ tên học viên hoặc Mã khôi phục đã đăng ký *</label>
-          <input type="text" id="forgot-verify" placeholder="VD: Minh Nam (hoặc mã khôi phục của bạn)" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-600 focus:outline-none text-sm" />
+          <label class="font-bold text-slate-300 block mb-1">2. Nhập Họ tên học viên hoặc Mã khôi phục đã đăng ký *</label>
+          <input type="text" id="forgot-verify" placeholder="VD: Minh Nam (hoặc mã khôi phục của bạn)" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-700 bg-slate-950 text-slate-100 placeholder-slate-500 focus:border-indigo-500 focus:outline-none text-sm" />
         </div>
 
         <div>
-          <label class="font-bold text-slate-700 block mb-1">3. Nhập Mật khẩu mới * (≥ 4 ký tự)</label>
-          <input type="password" id="forgot-new-password" onkeydown="if(event.key==='Enter') submitPasswordReset()" placeholder="Nhập mật khẩu mới..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-indigo-600 focus:outline-none font-mono-ipa text-sm" />
+          <label class="font-bold text-slate-300 block mb-1">3. Nhập Mật khẩu mới * (≥ 4 ký tự)</label>
+          <input type="password" id="forgot-new-password" onkeydown="if(event.key==='Enter') submitPasswordReset()" placeholder="Nhập mật khẩu mới..." class="w-full px-3.5 py-2.5 rounded-xl border border-slate-700 bg-slate-950 text-slate-100 placeholder-slate-500 focus:border-indigo-500 focus:outline-none font-mono-ipa text-sm" />
         </div>
 
-        <button type="button" onclick="submitPasswordReset()" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm shadow-md shadow-emerald-200 transition">
-          ✅ Đặt lại mật khẩu &amp; Tự động đăng nhập
+        <button type="button" onclick="submitPasswordReset()" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 border border-emerald-400/50 text-white font-extrabold text-sm shadow-lg shadow-emerald-500/25 active:scale-[0.99] transition">
+          Đặt lại mật khẩu &amp; Tự động đăng nhập
         </button>
       </div>
     </div>
@@ -1285,7 +1276,7 @@
 
   let accountsStore = {};
   let activeAccount = null; // null for Guest, or account object
-  let selectedRegAvatar = "👨‍🎓";
+  let selectedRegAvatar = "HV";
 
   let userState = {
     srs: {},          // id -> { status: 'new'|'learning'|'mastered', interval: 0, ef: 2.5, due: 0, lapses: 0 }
@@ -1369,7 +1360,7 @@
           email: "nam.learner@gmail.com",
           pin: "123456",
           recoveryKey: "2002",
-          avatar: "👨‍🎓",
+          avatar: "HV",
           levelGoal: "B2",
           createdAt: Date.now() - 86400000 * 5,
           lastSync: Date.now() - 1800000,
@@ -1388,6 +1379,9 @@
       const activeId = localStorage.getItem(ACTIVE_ACCOUNT_KEY);
       if (activeId && accountsStore[activeId]) {
         activeAccount = accountsStore[activeId];
+        if (activeAccount.avatar && /[^\x00-\x7F]/.test(activeAccount.avatar)) {
+          activeAccount.avatar = "HV";
+        }
         if (activeAccount.state) {
           userState = Object.assign(userState, activeAccount.state);
         }
@@ -1585,13 +1579,13 @@
     const usBtn = document.getElementById("accent-us-btn");
     const ukBtn = document.getElementById("accent-uk-btn");
     if (lang === "en-US") {
-      usBtn.className = "px-2 py-1 rounded-md text-xs font-bold bg-indigo-600 text-white transition";
-      ukBtn.className = "px-2 py-1 rounded-md text-xs font-bold text-slate-600 hover:text-slate-900 transition";
-      showToast("Đã chuyển sang giọng đọc Anh - Mỹ (US 🇺🇸)", "info");
+      usBtn.className = "px-2.5 py-1 rounded-md text-xs font-bold bg-indigo-600 text-white shadow-sm shadow-indigo-500/30 transition";
+      ukBtn.className = "px-2.5 py-1 rounded-md text-xs font-bold text-slate-300 hover:text-white hover:bg-slate-800 transition";
+      showToast("Đã chuyển sang giọng đọc Anh - Mỹ (US)", "info");
     } else {
-      ukBtn.className = "px-2 py-1 rounded-md text-xs font-bold bg-indigo-600 text-white transition";
-      usBtn.className = "px-2 py-1 rounded-md text-xs font-bold text-slate-600 hover:text-slate-900 transition";
-      showToast("Đã chuyển sang giọng đọc Anh - Anh (UK 🇬🇧)", "info");
+      ukBtn.className = "px-2.5 py-1 rounded-md text-xs font-bold bg-indigo-600 text-white shadow-sm shadow-indigo-500/30 transition";
+      usBtn.className = "px-2.5 py-1 rounded-md text-xs font-bold text-slate-300 hover:text-white hover:bg-slate-800 transition";
+      showToast("Đã chuyển sang giọng đọc Anh - Anh (UK)", "info");
     }
     const cur = getCurrentFlashcardWord();
     if (cur) speakText(cur.word, null);
@@ -1608,11 +1602,11 @@
     saveState();
     const btn = document.getElementById("auto-speak-btn");
     if (userState.autoSpeak) {
-      btn.textContent = "🔊 Tự đọc: BẬT";
-      btn.className = "px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200 hover:bg-indigo-100 transition";
+      btn.textContent = "Tự đọc: BẬT";
+      btn.className = "px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-600/25 text-indigo-200 border border-indigo-500/50 hover:bg-indigo-600/40 active:scale-95 transition";
     } else {
-      btn.textContent = "🔇 Tự đọc: TẮT";
-      btn.className = "px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-white text-slate-500 border border-slate-200 hover:bg-slate-50 transition";
+      btn.textContent = "Tự đọc: TẮT";
+      btn.className = "px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-800 text-slate-400 border border-slate-700 hover:bg-slate-700 active:scale-95 transition";
     }
   }
 
@@ -1620,7 +1614,7 @@
     userState.sfx = !userState.sfx;
     saveState();
     const btn = document.getElementById("sfx-btn");
-    btn.textContent = userState.sfx ? "🔔" : "🔕";
+    btn.textContent = userState.sfx ? "SFX: BẬT" : "SFX: TẮT";
     showToast(userState.sfx ? "Đã bật âm thanh hiệu ứng" : "Đã tắt âm thanh hiệu ứng", "info");
   }
 
@@ -1640,7 +1634,7 @@
   function populateFilterDropdowns() {
     // 30 Packs of 100 words
     const packSel = document.getElementById("filter-pack");
-    let packHtml = '<option value="all">📦 Tất cả ' + ALL_WORDS.length + ' từ</option>';
+    let packHtml = '<option value="all">Tất cả ' + ALL_WORDS.length + ' từ</option>';
     const totalPacks = Math.ceil(ALL_WORDS.length / 100);
     for (let p = 0; p < totalPacks; p++) {
       const start = p * 100 + 1;
@@ -1652,7 +1646,7 @@
     // 12 Topics
     const topicSel = document.getElementById("filter-topic");
     const addTopicSel = document.getElementById("add-word-topic");
-    let topicHtml = '<option value="all">🏷️ Tất cả 12 chủ đề</option>';
+    let topicHtml = '<option value="all">Tất cả 12 chủ đề</option>';
     let addTopicHtml = "";
     for (let i = 0; i < TOPICS.length; i++) {
       topicHtml += `<option value="${i}">${i + 1}. ${TOPICS[i]}</option>`;
@@ -1666,7 +1660,7 @@
     const letters = ["ALL", ..."ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")];
     alphaBar.innerHTML = letters.map(ch => {
       const active = ch === expAlpha;
-      return `<button type="button" onclick="setExplorerAlpha('${ch}')" class="px-2.5 py-1 rounded-lg text-xs font-bold transition shrink-0 ${active ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}">${ch === 'ALL' ? 'Tất cả A–Z' : ch}</button>`;
+      return `<button type="button" onclick="setExplorerAlpha('${ch}')" class="px-2.5 py-1 rounded-lg text-xs font-bold border transition shrink-0 ${active ? 'bg-indigo-600 text-white border-indigo-400/50 shadow-sm shadow-indigo-500/20' : 'bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700 hover:text-white'}">${ch === 'ALL' ? 'Tất cả A–Z' : ch}</button>`;
     }).join("");
   }
 
@@ -1777,10 +1771,10 @@
       const panel = document.getElementById("panel-" + t);
       if (!btn || !panel) continue;
       if (t === tabName) {
-        btn.className = "tab-nav-btn px-2.5 py-2 sm:py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-indigo-600 text-white shadow-xs text-center transition";
+        btn.className = "tab-nav-btn px-3 py-2 sm:py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-indigo-600 text-white border border-indigo-400/50 shadow-md shadow-indigo-500/25 text-center active:scale-95 transition";
         panel.classList.remove("hidden");
       } else {
-        btn.className = "tab-nav-btn px-2.5 py-2 sm:py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-700 bg-white/80 sm:bg-transparent hover:bg-white hover:text-slate-900 text-center transition";
+        btn.className = "tab-nav-btn px-3 py-2 sm:py-1.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-200 bg-slate-800/90 border border-slate-700 hover:bg-slate-700 hover:border-slate-500 hover:text-white text-center active:scale-95 transition";
         panel.classList.add("hidden");
       }
     }
@@ -1821,7 +1815,7 @@
     }
     if (cardInner) {
       cardInner.classList.remove("border-emerald-500", "border-amber-500");
-      cardInner.classList.add("border-slate-200/90");
+      cardInner.classList.add("border-slate-800");
     }
     if (badgeL) badgeL.style.opacity = "0";
     if (badgeR) badgeR.style.opacity = "0";
@@ -1845,14 +1839,14 @@
     const srsBadge = document.getElementById("fc-srs-badge");
     if (srsBadge) {
       if (srs.status === "mastered") {
-        srsBadge.textContent = "✅ Đã thuộc";
-        srsBadge.className = "hidden sm:inline-block text-xs font-semibold px-2.5 py-1 rounded-xl bg-emerald-100 text-emerald-800";
+        srsBadge.textContent = "Đã thuộc";
+        srsBadge.className = "hidden sm:inline-block text-xs font-semibold px-2.5 py-1 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/40";
       } else if (srs.status === "learning") {
-        srsBadge.textContent = isWordDue(w.id) ? "⏰ Đến hạn ôn" : "🟠 Đang học";
-        srsBadge.className = "hidden sm:inline-block text-xs font-semibold px-2.5 py-1 rounded-xl bg-amber-100 text-amber-800";
+        srsBadge.textContent = isWordDue(w.id) ? "Đến hạn ôn" : "Đang học";
+        srsBadge.className = "hidden sm:inline-block text-xs font-semibold px-2.5 py-1 rounded-xl bg-amber-500/20 text-amber-300 border border-amber-500/40";
       } else {
-        srsBadge.textContent = "🆕 Chưa học";
-        srsBadge.className = "hidden sm:inline-block text-xs font-semibold px-2.5 py-1 rounded-xl bg-slate-200 text-slate-700";
+        srsBadge.textContent = "Chưa học";
+        srsBadge.className = "hidden sm:inline-block text-xs font-semibold px-2.5 py-1 rounded-xl bg-slate-800 text-slate-300 border border-slate-700";
       }
     }
 
@@ -1862,9 +1856,11 @@
 
     const starBtn = document.getElementById("fc-star-btn");
     if (userState.starred[w.id]) {
-      starBtn.className = "p-1.5 rounded-full bg-amber-50 text-amber-400 transition text-xl leading-none";
+      starBtn.textContent = "Đã lưu sao";
+      starBtn.className = "px-2.5 py-1 rounded-lg bg-amber-500/25 text-amber-300 border border-amber-500/50 transition text-xs font-bold leading-none shrink-0";
     } else {
-      starBtn.className = "p-1.5 rounded-full hover:bg-amber-50 text-slate-300 hover:text-amber-400 transition text-xl leading-none";
+      starBtn.textContent = "Lưu sao";
+      starBtn.className = "px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-amber-300 border border-slate-700 transition text-xs font-bold leading-none shrink-0";
     }
 
     if (fcFrontIsEnglish) {
@@ -1889,7 +1885,7 @@
 
     const noteEl = document.getElementById("fc-back-note");
     if (userState.notes[w.id]) {
-      noteEl.textContent = "📌 Ghi chú: " + userState.notes[w.id];
+      noteEl.textContent = "Ghi chú: " + userState.notes[w.id];
       noteEl.classList.remove("hidden");
     } else {
       noteEl.classList.add("hidden");
@@ -1968,7 +1964,7 @@
     const savedY = window.scrollY;
     fcFrontIsEnglish = !fcFrontIsEnglish;
     const btn = document.getElementById("fc-direction-btn");
-    if (btn) btn.textContent = fcFrontIsEnglish ? "🔄 Mặt: Anh" : "🔄 Mặt: Việt";
+    if (btn) btn.textContent = fcFrontIsEnglish ? "Mặt: Anh" : "Mặt: Việt";
     renderFlashcard();
     keepScrollPosition(savedY, null);
   }
@@ -2009,7 +2005,7 @@
       showToast(`Đã bỏ dấu sao từ "${w.word}"`, "info");
     } else {
       userState.starred[w.id] = true;
-      showToast(`⭐ Đã lưu "${w.word}" vào danh sách yêu thích`, "success");
+      showToast(`Đã lưu "${w.word}" vào danh sách yêu thích`, "success");
     }
     saveState();
     renderFlashcard();
@@ -2094,7 +2090,7 @@
       wrapper.style.opacity = "0";
     }
     if (cardInner) {
-      cardInner.classList.remove("border-slate-200/90");
+      cardInner.classList.remove("border-slate-800");
       cardInner.classList.add(isRight ? "border-emerald-500" : "border-amber-500");
     }
     if (isRight && badgeR) badgeR.style.opacity = "1";
@@ -2127,7 +2123,7 @@
     saveState();
     renderFlashcard();
     keepScrollPosition(savedY, null);
-    showToast("↩️ Đã hoàn tác thẻ vừa vuốt!", "info");
+    showToast("Đã hoàn tác thẻ vừa vuốt!", "info");
   }
 
   function initQuizletSwipeGestures() {
@@ -2191,14 +2187,14 @@
           if (badgeR) badgeR.style.opacity = String(progress);
           if (badgeL) badgeL.style.opacity = "0";
           if (cardInner) {
-            cardInner.classList.remove("border-slate-200/90", "border-amber-500");
+            cardInner.classList.remove("border-slate-800", "border-amber-500");
             cardInner.classList.add("border-emerald-500");
           }
         } else if (dx < -15) {
           if (badgeL) badgeL.style.opacity = String(progress);
           if (badgeR) badgeR.style.opacity = "0";
           if (cardInner) {
-            cardInner.classList.remove("border-slate-200/90", "border-emerald-500");
+            cardInner.classList.remove("border-slate-800", "border-emerald-500");
             cardInner.classList.add("border-amber-500");
           }
         } else {
@@ -2206,7 +2202,7 @@
           if (badgeR) badgeR.style.opacity = "0";
           if (cardInner) {
             cardInner.classList.remove("border-emerald-500", "border-amber-500");
-            cardInner.classList.add("border-slate-200/90");
+            cardInner.classList.add("border-slate-800");
           }
         }
       }
@@ -2302,13 +2298,13 @@
     const scramArea = document.getElementById("dict-scramble-area");
 
     if (mode === "type") {
-      typeBtn.className = "px-3 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 text-white transition";
-      scramBtn.className = "px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition";
+      typeBtn.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow-sm shadow-indigo-500/30 transition";
+      scramBtn.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition";
       typeArea.classList.remove("hidden");
       scramArea.classList.add("hidden");
     } else {
-      scramBtn.className = "px-3 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 text-white transition";
-      typeBtn.className = "px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900 transition";
+      scramBtn.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow-sm shadow-indigo-500/30 transition";
+      typeBtn.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-300 hover:text-white transition";
       scramArea.classList.remove("hidden");
       typeArea.classList.add("hidden");
     }
@@ -2354,7 +2350,7 @@
     slotsEl.innerHTML = chars.map((ch, idx) => {
       if (ch === " " || ch === "-") return `<span class="px-1 text-slate-400">${ch}</span>`;
       const revealed = idx < dictHintCount;
-      return `<span class="w-7 h-8 rounded-lg border ${revealed ? 'bg-amber-50 border-amber-300 text-amber-800' : 'bg-slate-100 border-slate-300 text-slate-400'} flex items-center justify-center text-sm">${revealed ? ch : '_'}</span>`;
+      return `<span class="w-7 h-8 rounded-lg border ${revealed ? 'bg-amber-500/20 border-amber-500/50 text-amber-200' : 'bg-slate-800 border-slate-700 text-slate-400'} flex items-center justify-center text-sm">${revealed ? ch : '_'}</span>`;
     }).join("");
   }
 
@@ -2366,11 +2362,11 @@
     chosenEl.innerHTML = scrambleChosen.length === 0
       ? '<span class="text-xs text-slate-400 italic">Chạm vào các chữ cái bên dưới để xếp thành từ...</span>'
       : scrambleChosen.map((item, cIdx) =>
-          `<button type="button" onclick="removeScrambleChosenLetter(${cIdx})" class="w-10 h-10 rounded-xl bg-indigo-600 hover:bg-rose-600 text-white font-mono-ipa font-extrabold text-base shadow-xs transition">${item.ch}</button>`
+          `<button type="button" onclick="removeScrambleChosenLetter(${cIdx})" class="w-10 h-10 rounded-xl bg-indigo-600 hover:bg-rose-600 border border-indigo-400/50 text-white font-mono-ipa font-extrabold text-base shadow-sm transition">${item.ch}</button>`
         ).join("");
 
     poolEl.innerHTML = scramblePool.map((item, pIdx) =>
-      `<button type="button" ${item.used ? 'disabled' : ''} onclick="selectScramblePoolLetter(${pIdx})" class="w-10 h-10 rounded-xl font-mono-ipa font-extrabold text-base border transition ${item.used ? 'bg-slate-100 text-slate-300 border-slate-200 cursor-not-allowed' : 'bg-white hover:bg-indigo-50 text-slate-800 border-slate-300 shadow-2xs'}">${item.ch}</button>`
+      `<button type="button" ${item.used ? 'disabled' : ''} onclick="selectScramblePoolLetter(${pIdx})" class="w-10 h-10 rounded-xl font-mono-ipa font-extrabold text-base border transition ${item.used ? 'bg-slate-900 text-slate-600 border-slate-800 cursor-not-allowed' : 'bg-slate-800 hover:bg-indigo-600 text-slate-100 hover:text-white border-slate-600 hover:border-indigo-400 shadow-sm'}">${item.ch}</button>`
     ).join("");
   }
 
@@ -2440,26 +2436,26 @@
       playSfx("correct");
       speakText(w.word, null);
       recordStudyActivity();
-      fb.className = "rounded-2xl p-4 border bg-emerald-50 border-emerald-200 text-emerald-900 space-y-1";
+      fb.className = "rounded-2xl p-4 border bg-emerald-950/60 border-emerald-500/40 text-emerald-200 space-y-1";
       fb.innerHTML = `
-        <div class="font-extrabold text-base">✅ Chính xác tuyệt đối! "${w.word}" ${w.ipa}</div>
+        <div class="font-extrabold text-base text-emerald-300">Chính xác tuyệt đối! "${w.word}" ${w.ipa}</div>
         <div class="text-xs sm:text-sm"><strong>Nghĩa:</strong> ${w.meaning} • <strong>Cụm từ:</strong> ${w.colloc}</div>
-        <div class="text-xs italic text-emerald-700">"${w.exEn}" — ${w.exVi}</div>
+        <div class="text-xs italic text-emerald-300/90">"${w.exEn}" — ${w.exVi}</div>
       `;
     } else {
       dictStreak = 0;
       userState.hard[w.id] = (userState.hard[w.id] || 0) + 1;
       saveState();
       playSfx("wrong");
-      fb.className = "rounded-2xl p-4 border bg-rose-50 border-rose-200 text-rose-900 space-y-1";
+      fb.className = "rounded-2xl p-4 border bg-rose-950/60 border-rose-500/40 text-rose-200 space-y-1";
       fb.innerHTML = `
-        <div class="font-extrabold text-base">❌ Chưa khớp! Bạn viết "${escapeHtml(attempt || '(trống)')}" — Đáp án đúng là: <span class="underline">${w.word}</span> ${w.ipa}</div>
+        <div class="font-extrabold text-base text-rose-300">Chưa khớp! Bạn viết "${escapeHtml(attempt || '(trống)')}" — Đáp án đúng là: <span class="underline">${w.word}</span> ${w.ipa}</div>
         <div class="text-xs sm:text-sm"><strong>Nghĩa:</strong> ${w.meaning}</div>
-        <div class="text-xs italic text-rose-700">"${w.exEn}"</div>
+        <div class="text-xs italic text-rose-300/90">"${w.exEn}"</div>
       `;
     }
     document.getElementById("dict-score").textContent = dictScore;
-    document.getElementById("dict-streak").textContent = dictStreak + " 🔥";
+    document.getElementById("dict-streak").textContent = dictStreak;
   }
 
   function revealDictationAnswer() {
@@ -2547,9 +2543,9 @@
     grid.innerHTML = quizOptions.map((opt, idx) => {
       const label = mode === "en2vi" ? opt.item.meaning : `${opt.item.word} <span class="text-xs font-mono-ipa text-slate-400 ml-1">${opt.item.ipa}</span>`;
       return `
-        <button type="button" id="quiz-opt-${idx}" onclick="selectQuizOption(${idx})" class="p-4 rounded-2xl border-2 border-slate-200 hover:border-indigo-500 bg-white hover:bg-indigo-50/40 text-left transition flex items-center gap-3 shadow-2xs">
-          <span class="w-8 h-8 rounded-xl bg-slate-100 text-slate-700 font-extrabold text-xs flex items-center justify-center shrink-0">${idx + 1}</span>
-          <span class="font-bold text-slate-800 text-sm sm:text-base">${label}</span>
+        <button type="button" id="quiz-opt-${idx}" onclick="selectQuizOption(${idx})" class="p-4 rounded-2xl border-2 border-slate-700 hover:border-indigo-400 bg-slate-800/90 hover:bg-slate-800 text-left transition flex items-center gap-3 shadow-sm active:scale-[0.99]">
+          <span class="w-8 h-8 rounded-xl bg-slate-900 border border-slate-700 text-indigo-300 font-extrabold text-xs flex items-center justify-center shrink-0">${idx + 1}</span>
+          <span class="font-bold text-slate-100 text-sm sm:text-base">${label}</span>
         </button>
       `;
     }).join("");
@@ -2588,27 +2584,27 @@
       const btn = document.getElementById("quiz-opt-" + i);
       if (!btn) continue;
       if (quizOptions[i].isCorrect) {
-        btn.className = "p-4 rounded-2xl border-2 border-emerald-500 bg-emerald-50 text-emerald-950 text-left flex items-center gap-3 font-bold";
+        btn.className = "p-4 rounded-2xl border-2 border-emerald-500 bg-emerald-950/70 text-emerald-100 text-left flex items-center gap-3 font-bold";
       } else if (i === idx && !chosen.isCorrect) {
-        btn.className = "p-4 rounded-2xl border-2 border-rose-500 bg-rose-50 text-rose-950 text-left flex items-center gap-3 opacity-90";
+        btn.className = "p-4 rounded-2xl border-2 border-rose-500 bg-rose-950/70 text-rose-100 text-left flex items-center gap-3 opacity-90";
       } else {
-        btn.className = "p-4 rounded-2xl border border-slate-200 bg-slate-50 text-slate-400 text-left flex items-center gap-3 opacity-60";
+        btn.className = "p-4 rounded-2xl border border-slate-800 bg-slate-900/60 text-slate-500 text-left flex items-center gap-3 opacity-60";
       }
     }
 
     document.getElementById("quiz-score").textContent = quizScore;
-    document.getElementById("quiz-combo").textContent = quizCombo + " 🔥";
+    document.getElementById("quiz-combo").textContent = quizCombo;
     document.getElementById("quiz-qnum").textContent = quizTotal;
     const acc = Math.round((quizCorrect / quizTotal) * 100);
     document.getElementById("quiz-accuracy").textContent = acc + "%";
 
     const expBox = document.getElementById("quiz-explain-box");
     expBox.classList.remove("hidden");
-    expBox.className = `rounded-2xl p-4 border space-y-1 ${chosen.isCorrect ? 'bg-emerald-50 border-emerald-200 text-emerald-950' : 'bg-rose-50 border-rose-200 text-rose-950'}`;
+    expBox.className = `rounded-2xl p-4 border space-y-1 ${chosen.isCorrect ? 'bg-emerald-950/60 border-emerald-500/40 text-emerald-100' : 'bg-rose-950/60 border-rose-500/40 text-rose-100'}`;
     expBox.innerHTML = `
-      <div class="font-extrabold text-sm sm:text-base">${chosen.isCorrect ? '🎉 Chính xác!' : '💡 Đáp án đúng:'} <span class="text-indigo-700">${quizCurrentWord.word}</span> <span class="font-mono-ipa text-xs">${quizCurrentWord.ipa}</span> (${quizCurrentWord.pos}) — ${quizCurrentWord.meaning}</div>
+      <div class="font-extrabold text-sm sm:text-base">${chosen.isCorrect ? 'Chính xác!' : 'Đáp án đúng:'} <span class="text-indigo-300">${quizCurrentWord.word}</span> <span class="font-mono-ipa text-xs">${quizCurrentWord.ipa}</span> (${quizCurrentWord.pos}) — ${quizCurrentWord.meaning}</div>
       <div class="text-xs sm:text-sm"><strong>Ví dụ:</strong> "${quizCurrentWord.exEn}" (${quizCurrentWord.exVi})</div>
-      <div class="text-xs text-slate-600"><strong>Cụm từ ghi nhớ:</strong> ${quizCurrentWord.colloc}</div>
+      <div class="text-xs text-slate-300"><strong>Cụm từ ghi nhớ:</strong> ${quizCurrentWord.colloc}</div>
     `;
   }
 
@@ -2670,11 +2666,11 @@
     const board = document.getElementById("match-board");
     board.innerHTML = matchTiles.map((t, idx) => {
       if (t.matched) {
-        return `<div class="h-24 rounded-2xl border-2 border-dashed border-emerald-200 bg-emerald-50/40 flex flex-col items-center justify-center p-2 text-emerald-600 text-xs font-bold">✓ Đã ghép</div>`;
+        return `<div class="h-24 rounded-2xl border-2 border-dashed border-emerald-500/40 bg-emerald-950/30 flex flex-col items-center justify-center p-2 text-emerald-300 text-xs font-bold">Đã ghép</div>`;
       }
       const selected = matchFirstIdx === idx;
       return `
-        <button type="button" onclick="handleMatchCardClick(${idx})" class="h-24 rounded-2xl border-2 p-3 flex flex-col items-center justify-center text-center transition shadow-2xs ${selected ? 'border-indigo-600 bg-indigo-600 text-white scale-[1.02]' : t.type === 'en' ? 'border-slate-200 bg-white hover:border-indigo-400 text-slate-900' : 'border-indigo-100 bg-indigo-50/40 hover:border-indigo-400 text-slate-800'}">
+        <button type="button" onclick="handleMatchCardClick(${idx})" class="h-24 rounded-2xl border-2 p-3 flex flex-col items-center justify-center text-center transition shadow-sm ${selected ? 'border-indigo-400 bg-indigo-600 text-white scale-[1.02] shadow-md shadow-indigo-500/30' : t.type === 'en' ? 'border-slate-700 bg-slate-800 hover:border-indigo-400 text-slate-100' : 'border-indigo-500/30 bg-indigo-950/40 hover:border-indigo-400 text-indigo-100'}">
           <span class="font-extrabold text-sm sm:text-base line-clamp-2">${escapeHtml(t.text)}</span>
           <span class="text-[11px] mt-1 ${selected ? 'text-indigo-200' : 'text-slate-400'} font-mono-ipa">${escapeHtml(t.sub)}</span>
         </button>
@@ -2710,7 +2706,7 @@
       matchCombo += 1;
       matchPairsLeft -= 1;
       playSfx("correct");
-      document.getElementById("match-combo").textContent = matchCombo + "x 🔥";
+      document.getElementById("match-combo").textContent = matchCombo + "x";
       renderMatchBoard();
 
       if (matchPairsLeft <= 0) {
@@ -2770,11 +2766,11 @@
     const gBtn = document.getElementById("exp-view-grid-btn");
     const tBtn = document.getElementById("exp-view-table-btn");
     if (view === "grid") {
-      gBtn.className = "px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-indigo-600 shadow-2xs";
-      tBtn.className = "px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900";
+      gBtn.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow-sm";
+      tBtn.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-300 hover:text-white";
     } else {
-      tBtn.className = "px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-indigo-600 shadow-2xs";
-      gBtn.className = "px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600 hover:text-slate-900";
+      tBtn.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow-sm";
+      gBtn.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-300 hover:text-white";
     }
     renderExplorer();
   }
@@ -2816,48 +2812,48 @@
       container.innerHTML = `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">` + pageItems.map(w => {
         const srs = getWordSrs(w.id);
         const starred = !!userState.starred[w.id];
-        const statusColor = srs.status === "mastered" ? "border-emerald-300 bg-emerald-50/30" : srs.status === "learning" ? "border-sky-300 bg-sky-50/20" : "border-slate-200 bg-white";
+        const statusColor = srs.status === "mastered" ? "border-emerald-500/40 bg-emerald-950/20" : srs.status === "learning" ? "border-sky-500/40 bg-sky-950/20" : "border-slate-800 bg-slate-950/60";
         return `
-          <div class="rounded-2xl border ${statusColor} p-4 flex flex-col justify-between gap-2.5 hover:shadow-md transition">
+          <div class="rounded-2xl border ${statusColor} p-4 flex flex-col justify-between gap-2.5 hover:border-slate-600 transition">
             <div>
               <div class="flex items-center justify-between gap-2">
                 <div class="flex items-center gap-1.5">
                   <span class="text-[11px] font-mono-ipa text-slate-400">#${w.id}</span>
-                  <span class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-indigo-100 text-indigo-700">${w.level}</span>
-                  <span class="text-[11px] text-slate-500 truncate max-w-[130px]">${TOPICS[w.topicIdx]}</span>
+                  <span class="px-2 py-0.5 rounded-md text-[11px] font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">${w.level}</span>
+                  <span class="text-[11px] text-slate-400 truncate max-w-[130px]">${TOPICS[w.topicIdx]}</span>
                 </div>
-                <button type="button" onclick="toggleStarById(${w.id}, event)" class="text-lg ${starred ? 'text-amber-400' : 'text-slate-300 hover:text-amber-400'}">★</button>
+                <button type="button" onclick="toggleStarById(${w.id}, event)" class="px-2 py-0.5 rounded-md text-[11px] font-bold border transition ${starred ? 'bg-amber-500/25 text-amber-300 border-amber-500/50' : 'bg-slate-800 text-slate-400 border-slate-700 hover:text-amber-300'}">${starred ? 'Đã lưu' : 'Lưu sao'}</button>
               </div>
               <div class="flex items-baseline justify-between gap-2 mt-1.5">
                 <div>
-                  <span class="text-lg font-extrabold text-slate-900">${escapeHtml(w.word)}</span>
-                  <span class="text-xs italic text-violet-600 font-semibold ml-1">${w.pos}</span>
-                  <span class="text-xs font-mono-ipa text-slate-500 ml-1">${w.ipa}</span>
+                  <span class="text-lg font-extrabold text-white">${escapeHtml(w.word)}</span>
+                  <span class="text-xs italic text-violet-300 font-semibold ml-1">${w.pos}</span>
+                  <span class="text-xs font-mono-ipa text-indigo-400 ml-1">${w.ipa}</span>
                 </div>
                 <div class="flex items-center gap-1 shrink-0">
-                  <button type="button" onclick="speakWordById(${w.id}, 'word', event)" class="px-2 py-1 rounded-lg bg-indigo-50 hover:bg-indigo-600 text-indigo-700 hover:text-white text-xs font-bold transition" title="Nghe phát âm từ">🔊</button>
-                  <button type="button" onclick="speakWordById(${w.id}, 'ex', event)" class="px-2 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition" title="Nghe câu ví dụ">🗣️</button>
+                  <button type="button" onclick="speakWordById(${w.id}, 'word', event)" class="px-2.5 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold shadow-sm transition" title="Nghe phát âm từ">Nghe</button>
+                  <button type="button" onclick="speakWordById(${w.id}, 'ex', event)" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-200 text-xs font-semibold transition" title="Nghe câu ví dụ">Ví dụ</button>
                 </div>
               </div>
-              <div class="text-sm font-bold text-indigo-950 mt-1">${escapeHtml(w.meaning)}</div>
-              <p class="text-xs text-slate-600 italic mt-1 line-clamp-2">"${escapeHtml(w.exEn)}"</p>
+              <div class="text-sm font-bold text-amber-300 mt-1">${escapeHtml(w.meaning)}</div>
+              <p class="text-xs text-slate-300 italic mt-1 line-clamp-2">"${escapeHtml(w.exEn)}"</p>
             </div>
-            <div class="flex items-center justify-between pt-2 border-t border-slate-100 text-[11px]">
-              <div class="flex items-center gap-1">
-                <button type="button" onclick="quickSetStatusById(${w.id}, 'learning')" class="px-2 py-0.5 rounded ${srs.status === 'learning' ? 'bg-sky-600 text-white font-bold' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}">Đang học</button>
-                <button type="button" onclick="quickSetStatusById(${w.id}, 'mastered')" class="px-2 py-0.5 rounded ${srs.status === 'mastered' ? 'bg-emerald-600 text-white font-bold' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}">Đã thuộc</button>
+            <div class="flex items-center justify-between pt-2 border-t border-slate-800 text-[11px]">
+              <div class="flex items-center gap-1.5">
+                <button type="button" onclick="quickSetStatusById(${w.id}, 'learning')" class="px-2.5 py-1 rounded-lg border transition ${srs.status === 'learning' ? 'bg-sky-600 border-sky-400 text-white font-bold' : 'bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-700'}">Đang học</button>
+                <button type="button" onclick="quickSetStatusById(${w.id}, 'mastered')" class="px-2.5 py-1 rounded-lg border transition ${srs.status === 'mastered' ? 'bg-emerald-600 border-emerald-400 text-white font-bold' : 'bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-700'}">Đã thuộc</button>
               </div>
-              <button type="button" onclick="openWordDetailById(${w.id})" class="text-indigo-600 hover:underline font-semibold">Chi tiết / Ghi chú</button>
+              <button type="button" onclick="openWordDetailById(${w.id})" class="text-indigo-400 hover:text-indigo-300 hover:underline font-semibold">Chi tiết / Ghi chú</button>
             </div>
           </div>
         `;
       }).join("") + `</div>`;
     } else {
       container.innerHTML = `
-        <div class="overflow-x-auto rounded-2xl border border-slate-200">
+        <div class="overflow-x-auto rounded-2xl border border-slate-800">
           <table class="w-full text-left border-collapse text-xs sm:text-sm">
             <thead>
-              <tr class="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
+              <tr class="bg-slate-950 text-slate-300 font-bold border-b border-slate-800">
                 <th class="p-3">#ID</th>
                 <th class="p-3">Từ vựng</th>
                 <th class="p-3">Phiên âm</th>
@@ -2867,21 +2863,21 @@
                 <th class="p-3 text-right">Thao tác</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-slate-200">
+            <tbody class="divide-y divide-slate-800 bg-slate-900/60">
               ${pageItems.map(w => {
                 const srs = getWordSrs(w.id);
                 return `
-                  <tr class="hover:bg-slate-50">
+                  <tr class="hover:bg-slate-800/60">
                     <td class="p-3 font-mono-ipa text-xs text-slate-400">#${w.id}</td>
-                    <td class="p-3 font-extrabold text-slate-900">${escapeHtml(w.word)} <span class="text-xs italic text-violet-600 font-normal">(${w.pos})</span></td>
-                    <td class="p-3 font-mono-ipa text-xs text-indigo-600">${w.ipa}</td>
-                    <td class="p-3"><span class="px-2 py-0.5 rounded bg-indigo-50 text-indigo-700 font-bold text-xs">${w.level}</span></td>
-                    <td class="p-3 font-semibold text-slate-800">${escapeHtml(w.meaning)}</td>
-                    <td class="p-3 hidden md:table-cell text-xs text-slate-500 italic">${escapeHtml(w.exEn)}</td>
+                    <td class="p-3 font-extrabold text-white">${escapeHtml(w.word)} <span class="text-xs italic text-violet-300 font-normal">(${w.pos})</span></td>
+                    <td class="p-3 font-mono-ipa text-xs text-indigo-400">${w.ipa}</td>
+                    <td class="p-3"><span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 font-bold text-xs">${w.level}</span></td>
+                    <td class="p-3 font-semibold text-amber-300">${escapeHtml(w.meaning)}</td>
+                    <td class="p-3 hidden md:table-cell text-xs text-slate-300 italic">${escapeHtml(w.exEn)}</td>
                     <td class="p-3 text-right whitespace-nowrap space-x-1">
-                      <button type="button" onclick="speakWordById(${w.id}, 'word', event)" class="px-2 py-1 rounded bg-indigo-50 text-indigo-700 font-bold">🔊</button>
-                      <button type="button" onclick="quickSetStatusById(${w.id}, 'mastered')" class="px-2 py-1 rounded ${srs.status === 'mastered' ? 'bg-emerald-600 text-white' : 'bg-slate-100 text-slate-600'}">✓</button>
-                      <button type="button" onclick="openWordDetailById(${w.id})" class="px-2 py-1 rounded bg-slate-100 text-slate-700">📝</button>
+                      <button type="button" onclick="speakWordById(${w.id}, 'word', event)" class="px-2.5 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs">Nghe</button>
+                      <button type="button" onclick="quickSetStatusById(${w.id}, 'mastered')" class="px-2.5 py-1 rounded-lg border text-xs font-bold ${srs.status === 'mastered' ? 'bg-emerald-600 border-emerald-400 text-white' : 'bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-700'}">Thuộc</button>
+                      <button type="button" onclick="openWordDetailById(${w.id})" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 text-xs font-semibold">Ghi chú</button>
                     </td>
                   </tr>
                 `;
@@ -2965,10 +2961,10 @@
 
     if (activeAccount) {
       if (pfName) pfName.textContent = activeAccount.name;
-      if (pfAvatar) pfAvatar.textContent = activeAccount.avatar || "👨‍🎓";
+      if (pfAvatar) pfAvatar.textContent = activeAccount.avatar || "HV";
       if (pfBadge) {
-        pfBadge.textContent = "🟢 Đã đăng nhập • " + activeAccount.email;
-        pfBadge.className = "px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-400 text-emerald-950";
+        pfBadge.textContent = "Đã đăng nhập • " + activeAccount.email;
+        pfBadge.className = "px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40";
       }
       if (pfDesc) {
         pfDesc.textContent = `Mục tiêu: ${activeAccount.levelGoal || 'B1'} CEFR • Đã lưu tự động lúc: ${formatTimeAgo(activeAccount.lastSync)}`;
@@ -2989,11 +2985,11 @@
       const pct = Math.round((done / tot) * 100);
       return `
         <div class="space-y-1">
-          <div class="flex justify-between text-xs font-bold text-slate-700">
+          <div class="flex justify-between text-xs font-bold text-slate-200">
             <span>Cấp độ ${lv}</span>
             <span>${done} / ${tot} từ (${pct}%)</span>
           </div>
-          <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">
+          <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
             <div class="h-full ${lvColors[lv]} transition-all duration-300" style="width: ${pct}%"></div>
           </div>
         </div>
@@ -3006,12 +3002,12 @@
       const pct = Math.round((done / tot) * 100);
       return `
         <div class="space-y-1">
-          <div class="flex justify-between text-xs font-semibold text-slate-700">
+          <div class="flex justify-between text-xs font-semibold text-slate-200">
             <span>${tIdx + 1}. ${tName}</span>
             <span>${done}/${tot} (${pct}%)</span>
           </div>
-          <div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
-            <div class="h-full bg-indigo-600 transition-all duration-300" style="width: ${pct}%"></div>
+          <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+            <div class="h-full bg-indigo-500 transition-all duration-300" style="width: ${pct}%"></div>
           </div>
         </div>
       `;
@@ -3025,17 +3021,17 @@
 
     const hardContainer = document.getElementById("dash-hard-words-list");
     if (hardEntries.length === 0) {
-      hardContainer.innerHTML = `<div class="col-span-full text-xs text-slate-500 py-4 text-center">Chưa có từ nào trong danh sách hay nhầm. Các từ bạn trả lời sai trong Trắc nghiệm hoặc Chính tả sẽ tự động lưu vào đây để bạn ôn kỹ hơn!</div>`;
+      hardContainer.innerHTML = `<div class="col-span-full text-xs text-slate-400 py-4 text-center">Chưa có từ nào trong danh sách hay nhầm. Các từ bạn trả lời sai trong Trắc nghiệm hoặc Chính tả sẽ tự động lưu vào đây để bạn ôn kỹ hơn!</div>`;
     } else {
       hardContainer.innerHTML = hardEntries.map(({ w, count }) => `
-        <div class="p-3 rounded-xl bg-white border border-rose-200 flex items-center justify-between gap-2">
+        <div class="p-3 rounded-xl bg-slate-900 border border-rose-500/40 flex items-center justify-between gap-2">
           <div>
-            <div class="font-extrabold text-slate-900 text-sm">${escapeHtml(w.word)} <span class="text-xs font-mono-ipa text-slate-400">${w.ipa}</span></div>
-            <div class="text-xs text-slate-600">${escapeHtml(w.meaning)}</div>
+            <div class="font-extrabold text-white text-sm">${escapeHtml(w.word)} <span class="text-xs font-mono-ipa text-indigo-400">${w.ipa}</span></div>
+            <div class="text-xs text-slate-300">${escapeHtml(w.meaning)}</div>
           </div>
           <div class="flex items-center gap-1.5 shrink-0">
-            <span class="px-2 py-0.5 rounded bg-rose-50 text-rose-700 text-[11px] font-bold">Sai ${count}x</span>
-            <button type="button" onclick="speakWordById(${w.id}, 'word', event)" class="p-1.5 rounded-lg bg-indigo-50 text-indigo-700 text-xs">🔊</button>
+            <span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 text-[11px] font-bold">Sai ${count}x</span>
+            <button type="button" onclick="speakWordById(${w.id}, 'word', event)" class="px-2.5 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs">Nghe</button>
           </div>
         </div>
       `).join("");
@@ -3074,18 +3070,18 @@
     detailModalWordId = id;
     const body = document.getElementById("detail-modal-body");
     body.innerHTML = `
-      <div class="flex items-center justify-between bg-slate-50 p-3.5 rounded-2xl border border-slate-200">
+      <div class="flex items-center justify-between bg-slate-950 p-3.5 rounded-2xl border border-slate-800">
         <div>
-          <div class="text-2xl font-extrabold text-slate-900">${escapeHtml(w.word)} <span class="text-sm italic text-violet-600">(${w.pos})</span></div>
-          <div class="text-sm font-mono-ipa text-indigo-600">${w.ipa} • Cấp độ ${w.level}</div>
+          <div class="text-2xl font-extrabold text-white">${escapeHtml(w.word)} <span class="text-sm italic text-violet-300">(${w.pos})</span></div>
+          <div class="text-sm font-mono-ipa text-indigo-400">${w.ipa} • Cấp độ ${w.level}</div>
         </div>
-        <button type="button" onclick="speakWordById(${w.id}, 'word', event)" class="px-3.5 py-2 rounded-xl bg-indigo-600 text-white text-xs font-bold">🔊 Nghe chuẩn</button>
+        <button type="button" onclick="speakWordById(${w.id}, 'word', event)" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 border border-indigo-400/50 text-white text-xs font-bold shadow-md shadow-indigo-500/20">Nghe chuẩn</button>
       </div>
-      <div><strong>Nghĩa tiếng Việt:</strong> <span class="text-indigo-700 font-bold">${escapeHtml(w.meaning)}</span></div>
-      <div><strong>Cụm từ &amp; Mẹo nhớ:</strong> ${escapeHtml(w.colloc)}</div>
-      <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 space-y-1">
-        <div class="font-medium text-slate-900">"${escapeHtml(w.exEn)}"</div>
-        <div class="text-xs text-slate-500 italic">${escapeHtml(w.exVi)}</div>
+      <div><strong>Nghĩa tiếng Việt:</strong> <span class="text-amber-300 font-bold">${escapeHtml(w.meaning)}</span></div>
+      <div><strong>Cụm từ &amp; Mẹo nhớ:</strong> <span class="text-slate-200">${escapeHtml(w.colloc)}</span></div>
+      <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-1">
+        <div class="font-medium text-slate-100">"${escapeHtml(w.exEn)}"</div>
+        <div class="text-xs text-slate-400 italic">${escapeHtml(w.exVi)}</div>
       </div>
     `;
     document.getElementById("detail-note-input").value = userState.notes[id] || "";
@@ -3256,10 +3252,10 @@
     if (!container) return;
     const el = document.createElement("div");
     const colors = type === "error"
-      ? "bg-rose-600 text-white"
+      ? "bg-rose-600 text-white border border-rose-400/50"
       : type === "success"
-      ? "bg-emerald-600 text-white"
-      : "bg-slate-900 text-white";
+      ? "bg-emerald-600 text-white border border-emerald-400/50"
+      : "bg-slate-800 text-slate-100 border border-slate-600";
     el.className = `${colors} px-4 py-2.5 rounded-2xl shadow-lg text-xs font-bold transition-all duration-300 pointer-events-auto`;
     el.textContent = msg;
     container.appendChild(el);
@@ -3295,7 +3291,7 @@
 
       const avEl = document.getElementById("auth-user-avatar");
       const nameEl = document.getElementById("auth-user-name");
-      if (avEl) avEl.textContent = activeAccount.avatar || "👨‍🎓";
+      if (avEl) avEl.textContent = activeAccount.avatar || "HV";
       if (nameEl) nameEl.textContent = activeAccount.name || "Học viên";
 
       const dfName = document.getElementById("dropdown-full-name");
@@ -3364,10 +3360,10 @@
       const btn = document.getElementById("auth-tab-" + t);
       const panel = document.getElementById("auth-panel-" + t);
       if (t === tabName) {
-        if (btn) btn.className = "flex-1 py-2 rounded-lg bg-white text-indigo-700 shadow-2xs transition font-bold";
+        if (btn) btn.className = "flex-1 py-2 rounded-lg bg-indigo-600 text-white shadow-sm transition font-bold";
         if (panel) panel.classList.remove("hidden");
       } else {
-        if (btn) btn.className = "flex-1 py-2 rounded-lg text-slate-600 hover:text-slate-900 transition font-semibold";
+        if (btn) btn.className = "flex-1 py-2 rounded-lg text-slate-400 hover:text-slate-100 transition font-semibold";
         if (panel) panel.classList.add("hidden");
       }
     }
@@ -3378,9 +3374,9 @@
     const buttons = document.querySelectorAll(".reg-avatar-btn");
     buttons.forEach(btn => {
       if (btn.textContent.trim() === avatar) {
-        btn.className = "reg-avatar-btn w-9 h-9 rounded-xl border-2 border-indigo-600 bg-indigo-50 text-base flex items-center justify-center";
+        btn.className = "reg-avatar-btn w-9 h-9 rounded-xl border-2 border-indigo-500 bg-indigo-500/20 text-indigo-200 text-xs font-extrabold flex items-center justify-center";
       } else {
-        btn.className = "reg-avatar-btn w-9 h-9 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-base flex items-center justify-center";
+        btn.className = "reg-avatar-btn w-9 h-9 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold flex items-center justify-center";
       }
     });
   }
@@ -3430,7 +3426,7 @@
 
     activateAccount(foundAcc);
     closeAuthModal();
-    showToast(`🎉 Đăng nhập thành công! Chào mừng trở lại, ${foundAcc.name}.`, "success");
+    showToast(`Đăng nhập thành công! Chào mừng trở lại, ${foundAcc.name}.`, "success");
   }
 
   function submitRegister() {
@@ -3462,7 +3458,7 @@
       email: ident.includes("@") ? ident : ident + "@TKien.local",
       pin: pass,
       recoveryKey: recoveryKey || name.toLowerCase(),
-      avatar: selectedRegAvatar || "👨‍🎓",
+      avatar: selectedRegAvatar || "HV",
       levelGoal: level,
       createdAt: Date.now(),
       lastSync: Date.now(),
@@ -3475,7 +3471,7 @@
     } catch (e) {}
     activateAccount(newAcc);
     closeAuthModal();
-    showToast(`🎉 Tạo tài khoản thành công! Phiên đăng nhập của ${name} đã được lưu tự động.`, "success");
+    showToast(`Tạo tài khoản thành công! Phiên đăng nhập của ${name} đã được lưu tự động.`, "success");
   }
 
   function submitPasswordReset() {
@@ -3516,7 +3512,7 @@
 
     activateAccount(acc);
     closeAuthModal();
-    showToast(`✅ Đã cập nhật mật khẩu mới thành công và tự động đăng nhập cho ${acc.name}!`, "success");
+    showToast(`Đã cập nhật mật khẩu mới thành công và tự động đăng nhập cho ${acc.name}!`, "success");
   }
 
   function activateAccount(acc) {
